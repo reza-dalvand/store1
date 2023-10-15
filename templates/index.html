@@ -1,0 +1,2310 @@
+{% extends '_shared/_base_layout.html' %}
+{% load static %}
+{% block title %}  صفحه اصلی {% endblock %}
+{% block content %}
+    <div class="main-wrapper">
+        <header class="header">
+            <!-- Header Top Start -->
+            <div class="header-top-area d-none d-lg-block text-color-white bg-gren border-bm-1">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="header-top-settings">
+                                <ul class="nav align-items-center">
+                                    <li class="language">انگلیسی <i class="fa fa-angle-down"></i>
+                                        <ul class="dropdown-list">
+                                            <li><a href="#">انگلیسی</a></li>
+                                            <li><a href="#">فرانسه</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="curreny-wrap">واحد پول <i class="fa fa-angle-down"></i>
+                                        <ul class="dropdown-list curreny-list">
+                                            <li><a href="#">دلار</a></li>
+                                            <li><a href="#"> یورو</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="top-info-wrap text-left">
+                                <ul class="my-account-container">
+                                    <li><a href="my-account.html">پروفایل</a></li>
+                                    <li><a href="cart.html">خرید</a></li>
+                                    <li><a href="wishlist.html">علاقه مندی</a></li>
+                                    <li><a href="checkout.html">پرداخت</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Header Top End -->
+
+            <!-- haeader Mid Start -->
+            <div class="haeader-mid-area bg-gren border-bm-1 d-none d-lg-block ">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-4 col-5">
+                            <div class="logo-area">
+                                <a href="index.html"><img src="{% static "images/logo/logo.png" %}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="search-box-wrapper">
+                                <div class="search-box-inner-wrap">
+                                    <div class="search-title text-white d-flex">
+                                        <p>کلمات کلیدی </p>
+                                        <ul>
+                                            <li><a href="#">سفر ,</a></li>
+                                            <li><a href="#">وردپرس</a></li>
+                                        </ul>
+                                    </div>
+                                    <form class="search-box-inner">
+                                        <div class="search-select-box">
+                                            <select class="nice-select">
+                                                <optgroup label="organic food">
+                                                    <option value="volvo">همه</option>
+                                                    <option value="saab">ساعت</option>
+                                                    <option value="saab">صوتی</option>
+                                                    <option value="saab">تصویری</option>
+                                                    <option value="saab">اسپیکر</option>
+                                                    <option value="saab">محصول</option>
+                                                </optgroup>
+                                                <optgroup label="Fashion">
+                                                    <option value="mercedes">لباس زنانه</option>
+                                                    <option value="audi">محصول</option>
+                                                    <option value="audi">تیشرت</option>
+                                                    <option value="audi">محصول</option>
+                                                    <option value="audi">ساعت</option>
+                                                    <option value="audi">محصول</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                        <div class="search-field-wrap">
+                                            <input type="text" class="search-field" placeholder="جستجو...">
+
+                                            <div class="search-btn">
+                                                <button><i class="icon-search"></i></button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="customer-wrap green-bg">
+                                <div class="single-costomer-box">
+                                    <div class="single-costomer">
+                                        <p><i class="icon-check-circle"></i><span>ارسال رایگان</span></p>
+                                    </div>
+                                </div>
+
+                                <div class="single-costomer-box">
+                                    <div class="single-costomer">
+                                        <p><i class="icon-lock"></i><span>پرداخت امن</span></p>
+                                    </div>
+                                </div>
+
+                                <div class="single-costomer-box">
+                                    <div class="single-costomer">
+                                        <p><i class="icon-bell"></i><span>پشتیبانی 24</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- haeader Mid End -->
+
+            <!-- haeader bottom Start -->
+            <div class="haeader-bottom-area bg-gren header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 d-none d-lg-block">
+
+                            <div class="main-menu-area white_text">
+                                <!--  Start Mainmenu Nav-->
+                                <nav class="main-navigation">
+                                    <ul>
+                                        <li class="active"><a href="index.html">خانه <i
+                                                class="fa fa-angle-down"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="index.html">صفحه اصلی 1</a></li>
+                                                <li><a href="index-2.html">صفحه اصلی 2</a></li>
+                                                <li><a href="index-3.html">صفحه اصلی 3</a></li>
+                                                <li><a href="index-4.html">صفحه اصلی 4</a></li>
+                                                <li><a href="index-5.html">صفحه اصلی 5</a></li>
+                                                <li><a href="index-6.html">صفحه اصلی 6</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="#">خرید <i class="fa fa-angle-down"></i></a>
+                                            <ul class="mega-menu">
+                                                <li><a href="#">فروشگاه</a>
+                                                    <ul>
+                                                        <li><a href="shop.html">فروشگاه نوار کناری</a></li>
+                                                        <li><a href="shop-right-sidebar.html">فروشگاه نوار راست</a></li>
+                                                        <li><a href="shop-list-left.html">فروشگاه نوار چپ</a></li>
+                                                        <li><a href="shop-list-right.html">فروشگاه لیست راست</a></li>
+                                                        <li><a href="shop-fullwidth.html">فروشگاه تمام عرض</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="blog.html">جزئیات محصول</a>
+                                                    <ul>
+                                                        <li><a href="product-details.html">جزئیات محصول </a></li>
+                                                        <li><a href="variable-product-details.html">جزئیات محصول
+                                                            متغیر</a></li>
+                                                        <li><a href="external-product-details.html">گالری جزئیات
+                                                            محصول</a></li>
+                                                        <li><a href="gallery-product-details.html">گالری جزییات
+                                                            محصول</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">صفحات فروشگاه</a>
+                                                    <ul>
+                                                        <li><a href="error404.html"> 404</a></li>
+                                                        <li><a href="compare.html">مقایسه محصول</a></li>
+                                                        <li><a href="cart.html">صفحه خرید</a></li>
+                                                        <li><a href="checkout.html">پرداخت</a></li>
+                                                        <li><a href="wishlist.html">لیست دلخواه</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+
+                                        </li>
+                                        <li><a href="blog.html">وبلاگ <i class="fa fa-angle-down"></i></a>
+
+                                            <ul class="sub-menu">
+                                                <li><a href="blog.html">وبلاگ چپ</a></li>
+                                                <li><a href="blog-right-sidebar.html">وبلاگ راست</a></li>
+                                                <li><a href="blog-grid.html">وبلاگ گرید</a></li>
+                                                <li><a href="blog-largeimage.html">وبلاگ تصویر</a></li>
+                                                <li><a href="blog-details.html">جزییات وببلاگ</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="#">صفحات <i class="fa fa-angle-down"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="frequently-questions.html">سوالات</a></li>
+                                                <li><a href="my-account.html">پروفایل</a></li>
+                                                <li><a href="login-register.html">ورود</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="about-us.html">درباره ما</a></li>
+                                        <li><a href="contact-us.html">تماس با ما</a></li>
+                                    </ul>
+                                </nav>
+
+                            </div>
+                        </div>
+
+                        <div class="col-5 col-md-6 d-block d-lg-none">
+                            <div class="logo"><a href="index.html"><img src="{% static "images/logo/logo.png" %}" alt=""></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-7">
+                            <div class="right-blok-box text-white d-flex">
+
+                                <div class="user-wrap">
+                                    <a href="wishlist.html"><span class="cart-total">2</span> <i class="icon-heart"></i></a>
+                                </div>
+
+
+                                <div class="shopping-cart-wrap">
+                                    <a href="#"> <span class="cart-total-amunt">20000 تومان</span><i
+                                            class="icon-shopping-bag2 float-left"></i><span class="cart-total">2</span></a>
+                                    <ul class="mini-cart">
+                                        <li class="cart-item">
+                                            <div class="cart-image">
+                                                <a href="single-product.html"><img alt="" src="{% static "images/product/product-01.jpg" %}"></a>
+                                            </div>
+                                            <div class="cart-title">
+                                                <a href="single-product.html">
+                                                    <h4>محصول 1</h4>
+                                                </a>
+                                                <div class="quanti-price-wrap">
+                                                    <span class="quantity">1 ×</span>
+                                                    <div class="price-box"><span class="new-price">130000 تومان</span>
+                                                    </div>
+                                                </div>
+                                                <a class="remove_from_cart" href="#"><i class="icon-x"></i></a>
+                                            </div>
+                                        </li>
+                                        <li class="cart-item">
+                                            <div class="cart-image">
+                                                <a href="single-product.html"><img alt="" src="{% static "images/product/product-02.jpg" %}"></a>
+                                            </div>
+                                            <div class="cart-title">
+                                                <a href="single-product.html">
+                                                    <h4>محصول 2</h4>
+                                                </a>
+                                                <div class="quanti-price-wrap">
+                                                    <span class="quantity">1 ×</span>
+                                                    <div class="price-box"><span class="new-price">150000 تومان</span>
+                                                    </div>
+                                                </div>
+                                                <a class="remove_from_cart" href="#"><i
+                                                        class="icon-trash icons"></i></a>
+                                            </div>
+                                        </li>
+                                        <li class="subtotal-box">
+                                            <div class="subtotal-title">
+                                                <h3>جمع کل :</h3><span>260000 تومان</span>
+                                            </div>
+                                        </li>
+                                        <li class="mini-cart-btns">
+                                            <div class="cart-btns">
+                                                <a href="cart.html">مشاهده سبد</a>
+                                                <a href="checkout.html">پرداخت</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="mobile-menu-btn d-block d-lg-none">
+                                    <div class="off-canvas-btn">
+                                        <a href="#"><img src="{% static "images/icon/bg-menu.png" %}" alt=""></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- haeader bottom End -->
+
+
+            <!-- off-canvas menu start -->
+            <aside class="off-canvas-wrapper">
+                <div class="off-canvas-overlay"></div>
+                <div class="off-canvas-inner-content">
+                    <div class="btn-close-off-canvas">
+                        <i class="icon-x"></i>
+                    </div>
+
+                    <div class="off-canvas-inner">
+
+                        <div class="search-box-offcanvas">
+                            <form>
+                                <input type="text" placeholder="جستجو...">
+                                <button class="search-btn"><i class="icon-search"></i></button>
+                            </form>
+                        </div>
+
+                        <!-- mobile menu start -->
+                        <div class="mobile-navigation">
+
+                            <!-- mobile menu navigation start -->
+                            <nav>
+                                <ul class="mobile-menu">
+                                    <li class="menu-item-has-children"><a href="#">خانه</a>
+                                        <ul class="dropdown">
+                                            <li><a href="index.html">صفحه اصلی 1</a></li>
+                                            <li><a href="index-2.html">صفحه اصلی 2</a></li>
+                                            <li><a href="index-3.html">صفحه اصلی 3</a></li>
+                                            <li><a href="index-4.html">صفحه اصلی 4</a></li>
+                                            <li><a href="index-5.html">صفحه اصلی 5</a></li>
+                                            <li><a href="index-6.html">صفحه اصلی 6</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children"><a href="#">خرید </a>
+                                        <ul class="megamenu dropdown">
+                                            <li class="mega-title has-children"><a href="#">فروشگاه</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="shop.html">فروشگاه نوار کناری</a></li>
+                                                    <li><a href="shop-right-sidebar.html">فروشگاه نوار راست</a></li>
+                                                    <li><a href="shop-list-left.html">فروشگاه نوار چپ</a></li>
+                                                    <li><a href="shop-list-right.html">فروشگاه لیست راست</a></li>
+                                                    <li><a href="shop-fullwidth.html">فروشگاه تمام عرض</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="mega-title has-children"><a href="#">جزئیات محصول</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="product-details.html">جزئیات محصول </a></li>
+                                                    <li><a href="variable-product-details.html">جزئیات محصول متغیر</a>
+                                                    </li>
+                                                    <li><a href="external-product-details.html">گالری جزئیات محصول</a>
+                                                    </li>
+                                                    <li><a href="gallery-product-details.html">گالری جزییات محصول</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="mega-title has-children"><a href="#">صفحات فروشگاه</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="error404.html"> 404</a></li>
+                                                    <li><a href="compare.html">مقایسه محصول</a></li>
+                                                    <li><a href="cart.html">صفحه خرید</a></li>
+                                                    <li><a href="checkout.html">پرداخت</a></li>
+                                                    <li><a href="wishlist.html">لیست دلخواه</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children "><a href="#">وبلاگ </a>
+                                        <ul class="dropdown">
+                                            <li><a href="blog.html">وبلاگ چپ</a></li>
+                                            <li><a href="blog-right-sidebar.html">وبلاگ راست</a></li>
+                                            <li><a href="blog-grid.html">وبلاگ گرید</a></li>
+                                            <li><a href="blog-largeimage.html">وبلاگ تصویر</a></li>
+                                            <li><a href="blog-details.html">جزییات وببلاگ</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children "><a href="#">صفحات </a>
+                                        <ul class="dropdown">
+                                            <li><a href="frequently-questions.html">سوالات</a></li>
+                                            <li><a href="my-account.html">پروفایل</a></li>
+                                            <li><a href="login-register.html">ورود</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="about-us.html">درباره ما</a></li>
+                                    <li><a href="contact-us.html">تماس با ما</a></li>
+                                </ul>
+                            </nav>
+                            <!-- mobile menu navigation end -->
+                        </div>
+                        <!-- mobile menu end -->
+
+
+                        <div class="header-top-settings offcanvas-curreny-lang-support">
+                            <h5>پروفایل</h5>
+                            <ul class="nav align-items-center">
+                                <li class="language">انگلیسی <i class="fa fa-angle-down"></i>
+                                    <ul class="dropdown-list">
+                                        <li><a href="#">انگلیسی</a></li>
+                                        <li><a href="#">فرانسه</a></li>
+                                    </ul>
+                                </li>
+                                <li class="curreny-wrap">واحد پول <i class="fa fa-angle-down"></i>
+                                    <ul class="dropdown-list curreny-list">
+                                        <li><a href="#">دلار</a></li>
+                                        <li><a href="#"> یورو</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- offcanvas widget area start -->
+                        <div class="offcanvas-widget-area">
+                            <div class="top-info-wrap text-left text-black">
+                                <h5>پروفایل</h5>
+                                <ul class="offcanvas-account-container">
+                                    <li><a href="my-account.html">پروفایل</a></li>
+                                    <li><a href="cart.html">خرید</a></li>
+                                    <li><a href="wishlist.html">علاقه مندی</a></li>
+                                    <li><a href="checkout.html">پرداخت</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <!-- offcanvas widget area end -->
+                    </div>
+                </div>
+            </aside>
+            <!-- off-canvas menu end -->
+
+
+        </header>
+
+
+        <!-- Hero Section Start -->
+        <div class="hero-slider-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="categories-menu-wrap mt-30">
+                            <div class="categories_menu">
+                                <div class="categories_title">
+                                    <h5 class="categori_toggle">دسته بندی ها</h5>
+                                </div>
+                                <div class="categories_menu_toggle">
+                                    <ul>
+                                        <li class="menu_item_children categorie_list"><a href="#">غذای اقیانوس<i
+                                                class="fa fa-angle-left"></i></a>
+                                            <ul class="categories_mega_menu">
+                                                <li><a href="#">ماهی</a></li>
+                                                <li><a href="#"> میگو</a></li>
+                                                <li><a href="#">خرچنگ</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu_item_children"><a href="#">کره و تخم مرغ <i
+                                                class="fa fa-angle-left"></i></a>
+                                            <ul class="categories_mega_menu">
+                                                <li><a href="#">کره ترکیبی</a></li>
+                                                <li><a href="#">کره کره ای</a></li>
+                                                <li><a href="#">تخم مرغ محلی</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu_item_children"><a href="#">میوه های خشک شده <i
+                                                class="fa fa-angle-left"></i></a>
+                                            <ul class="categories_mega_menu">
+                                                <li><a href="#">انبه</a></li>
+                                                <li><a href="#">پالسموس</a></li>
+                                                <li><a href="#">کشمش</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu_item_children"><a href="#">فست فود <i
+                                                class="fa fa-angle-left"></i></a>
+                                            <ul class="categories_mega_menu">
+                                                <li><a href="#">همبرگر</a></li>
+                                                <li><a href="#">هات داگ</a></li>
+                                                <li><a href="#">کالباس</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu_item_children"><a href="#"> گوشت تازه <i
+                                                class="fa fa-angle-left"></i></a>
+                                            <ul class="categories_mega_menu">
+                                                <li><a href="#">گوشت مرغ </a></li>
+                                                <li><a href="#">گوشت ماهی</a></li>
+                                                <li><a href="#">گوشت گوسفند </a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu_item_children"><a href="#">میوه <i class="fa fa-angle-left"></i></a>
+                                            <ul class="categories_mega_menu">
+                                                <li><a href="#">انبه</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu_item_children"><a href="#">شیر و خامه <i
+                                                class="fa fa-angle-left"></i></a>
+                                            <ul class="categories_mega_menu">
+                                                <li><a href="#">شیر</a></li>
+                                                <li><a href="#">خامه</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu_item_children"><a href="#"> سبزیجات <i
+                                                class="fa fa-angle-left"></i></a>
+                                            <ul class="categories_mega_menu">
+                                                <li><a href="#">گوجه</a></li>
+                                                <li><a href="#">خیار</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="hero-slider-wrapper mt-30">
+                            <!-- Hero Slider Start -->
+                            <div class="hero-slider-area hero-slider-one">
+                                <div class="swiper-container gallery-top">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide"
+                                             style="background-image:url({% static "images/slider/slide-bg-1.jpg" %})">
+                                            <div class="hero-content-one">
+                                                <div class="slider-content-text">
+                                                    <h2>سوپر مارکت <br>شگفت انگیز با دمای بالا </h2>
+                                                    <p>پیشنهاد منحصر به فرد -20٪ تخفیف در این هفته </p>
+                                                    <div class="slider-btn">
+                                                        <a href="#">خرید کن</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="swiper-slide"
+                                             style="background-image:url({% static "images/slider/slide-bg-2.jpg" %})">
+                                            <div class="hero-content-one">
+                                                <div class="slider-content-text">
+                                                    <h2>سوپر مارکت <br>شگفت انگیز با دمای بالا </h2>
+                                                    <p>پیشنهاد منحصر به فرد -20٪ تخفیف در این هفته </p>
+                                                    <div class="slider-btn">
+                                                        <a href="#">خرید کن</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="swiper-slide"
+                                             style="background-image:url({% static "images/slider/slide-bg-3.jpg" %})">
+                                            <div class="hero-content-one">
+                                                <div class="slider-content-text">
+                                                    <h2>سوپر مارکت <br>شگفت انگیز با دمای بالا </h2>
+                                                    <p>پیشنهاد منحصر به فرد -20٪ تخفیف در این هفته </p>
+                                                    <div class="slider-btn">
+                                                        <a href="#">خرید کن</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="swiper-slide"
+                                             style="background-image:url({% static "images/slider/slide-bg-4.jpg" %})">
+                                            <div class="hero-content-one">
+                                                <div class="slider-content-text">
+                                                    <h2>سوپر مارکت <br>شگفت انگیز با دمای بالا </h2>
+                                                    <p>پیشنهاد منحصر به فرد -20٪ تخفیف در این هفته </p>
+                                                    <div class="slider-btn">
+                                                        <a href="#">خرید کن</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <div class="swiper-container gallery-thumbs">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="slider-thum-text"><span>سوپر مارکت</span></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-thum-text"><span>لوازم جانبی</span></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-thum-text"><span>سبزیجات</span></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-thum-text"><span>میوه ها</span></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Hero Slider End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero Section End -->
+
+
+        <!-- Categories Item Warap Start -->
+        <div class="categories-item-warap section-pt-30 section-pb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+                        <!-- single-categories-item Start -->
+                        <div class="single-categories-item mt-30">
+                            <div class="cat-item-image">
+                                <a href="#"><img src="{% static "images/category/category-thumb-1.jpg" %}" alt=""></a>
+                            </div>
+                            <div class="categories-title">
+                                <h6><a href="#">سبزیجات</a></h6>
+                                <p>11 محصول</p>
+                            </div>
+                        </div>
+                        <!-- single-categories-item End -->
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+                        <!-- single-categories-item Start -->
+                        <div class="single-categories-item mt-30">
+                            <div class="cat-item-image">
+                                <a href="#"><img src="{% static "images/category/category-thumb-2.jpg" %}" alt=""></a>
+                            </div>
+                            <div class="categories-title">
+                                <h6><a href="#">غذاهای دریایی</a></h6>
+                                <p>7 محصول</p>
+                            </div>
+                        </div>
+                        <!-- single-categories-item End -->
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+                        <!-- single-categories-item Start -->
+                        <div class="single-categories-item mt-30">
+                            <div class="cat-item-image">
+                                <a href="#"><img src="{% static "images/category/category-thumb-3.jpg" %}" alt=""></a>
+                            </div>
+                            <div class="categories-title">
+                                <h6><a href="#">میوه های استوایی</a></h6>
+                                <p>11 محصول</p>
+                            </div>
+                        </div>
+                        <!-- single-categories-item End -->
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+                        <!-- single-categories-item Start -->
+                        <div class="single-categories-item mt-30">
+                            <div class="cat-item-image">
+                                <a href="#"><img src="{% static "images/category/category-thumb-4.jpg" %}" alt=""></a>
+                            </div>
+                            <div class="categories-title">
+                                <h6><a href="#">فست فود</a></h6>
+                                <p>5 محصول</p>
+                            </div>
+                        </div>
+                        <!-- single-categories-item End -->
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+                        <!-- single-categories-item Start -->
+                        <div class="single-categories-item mt-30">
+                            <div class="cat-item-image">
+                                <a href="#"><img src="{% static "images/category/category-thumb-5.jpg" %}" alt=""></a>
+                            </div>
+                            <div class="categories-title">
+                                <h6><a href="#">گوشت تازه</a></h6>
+                                <p>8 محصول</p>
+                            </div>
+                        </div>
+                        <!-- single-categories-item End -->
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+                        <!-- single-categories-item Start -->
+                        <div class="single-categories-item mt-30">
+                            <div class="cat-item-image">
+                                <a href="#"><img src="{% static "images/category/category-thumb-6.jpg" %}" alt=""></a>
+                            </div>
+                            <div class="categories-title">
+                                <h6><a href="#">شیر و خامه</a></h6>
+                                <p>12 محصول</p>
+                            </div>
+                        </div>
+                        <!-- single-categories-item End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Categories Item Warap End -->
+
+        <!-- Banner Area Start -->
+        <div class="banner-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-banner mb-30">
+                            <a href="#"><img src="{% static "images/banner/banner-01.jpg" %}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6  col-md-6">
+                        <div class="single-banner mb-30">
+                            <a href="#"><img src="{% static "images/banner/banner-02.jpg" %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Banner Area End -->
+
+        <!-- Product Area Start -->
+        <div class="product-area section-pt-30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3>کالاهای موجود در فروشگاه</h3>
+                        </div>
+                        <!-- Section Title End -->
+                    </div>
+                </div>
+                <div class="row row-8 product-two-row-4">
+                    <div class="product-col">
+                        <!-- Single Product Start -->
+                        <div class="single-product-wrap mt-10">
+                            <div class="product-image">
+                                <a href="product-details.html"><img src="{% static "images/product/product-15.jpg" %}"
+                                                                    alt=""></a>
+                                <span class="onsale">فروش ویژه!</span>
+                            </div>
+                            <div class="product-button">
+                                <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                            </div>
+                            <div class="product-content">
+                                <div class="price-box">
+                                    <span class="new-price">49000 تومان</span>
+                                    <span class="old-price">89000 تومان</span>
+                                </div>
+                                <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a></h6>
+                                <div class="product-button-action">
+                                    <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Product End -->
+                    </div>
+                    <div class="product-col">
+                        <!-- Single Product Start -->
+                        <div class="single-product-wrap mt-10">
+                            <div class="product-image">
+                                <a href="product-details.html"><img src="{% static "images/product/product-12.jpg" %}"
+                                                                    alt=""></a>
+                                <span class="onsale">فروش ویژه!</span>
+                            </div>
+                            <div class="product-button">
+                                <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                            </div>
+                            <div class="product-content">
+                                <div class="price-box">
+                                    <span class="new-price">49000 تومان</span>
+                                    <span class="old-price">89000 تومان</span>
+                                </div>
+                                <h6 class="product-name"><a href="product-details.html">ماهی</a></h6>
+
+                                <div class="product-button-action">
+                                    <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Product End -->
+                    </div>
+                    <div class="product-col">
+                        <!-- Single Product Start -->
+                        <div class="single-product-wrap mt-10">
+                            <div class="product-image">
+                                <a href="product-details.html"><img src="{% static "images/product/product-13.jpg" %}"
+                                                                    alt=""></a>
+                                <span class="onsale">فروش ویژه!</span>
+                            </div>
+                            <div class="product-button">
+                                <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                            </div>
+                            <div class="product-content">
+                                <div class="price-box">
+                                    <span class="new-price">49000 تومان</span>
+                                    <span class="old-price">89000 تومان</span>
+                                </div>
+                                <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a></h6>
+
+                                <div class="product-button-action">
+                                    <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Product End -->
+                    </div>
+                    <div class="product-col">
+                        <!-- Single Product Start -->
+                        <div class="single-product-wrap mt-10">
+                            <div class="product-image">
+                                <a href="product-details.html"><img src="{% static "images/product/product-14.jpg" %}"
+                                                                    alt=""></a>
+                                <span class="onsale">فروش ویژه!</span>
+                            </div>
+                            <div class="product-button">
+                                <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                            </div>
+                            <div class="product-content">
+                                <div class="price-box">
+                                    <span class="new-price">49000 تومان</span>
+                                    <span class="old-price">89000 تومان</span>
+                                </div>
+                                <h6 class="product-name"><a href="product-details.html">نارگیل</a></h6>
+
+                                <div class="product-button-action">
+                                    <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Product End -->
+                    </div>
+                    <div class="product-col">
+                        <!-- Single Product Start -->
+                        <div class="single-product-wrap mt-10">
+                            <div class="product-image">
+                                <a href="product-details.html"><img src="{% static "images/product/product-11.jpg" %}"
+                                                                    alt=""></a>
+                                <span class="onsale">فروش ویژه!</span>
+                            </div>
+                            <div class="product-button">
+                                <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                            </div>
+                            <div class="product-content">
+                                <div class="price-box">
+                                    <span class="new-price">49000 تومان</span>
+                                    <span class="old-price">89000 تومان</span>
+                                </div>
+                                <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a></h6>
+
+                                <div class="product-button-action">
+                                    <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Product End -->
+                    </div>
+                    <div class="product-col">
+                        <!-- Single Product Start -->
+                        <div class="single-product-wrap mt-10">
+                            <div class="product-image">
+                                <a href="product-details.html"><img src="{% static "images/product/product-02.jpg" %}"
+                                                                    alt=""></a>
+                                <span class="onsale">فروش ویژه!</span>
+                            </div>
+                            <div class="product-button">
+                                <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                            </div>
+                            <div class="product-content">
+                                <div class="price-box">
+                                    <span class="new-price">49000 تومان</span>
+                                    <span class="old-price">89000 تومان</span>
+                                </div>
+                                <h6 class="product-name"><a href="product-details.html">همبرگر</a></h6>
+
+                                <div class="product-button-action">
+                                    <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Product End -->
+                    </div>
+                    <div class="product-col">
+                        <!-- Single Product Start -->
+                        <div class="single-product-wrap mt-10">
+                            <div class="product-image">
+                                <a href="product-details.html"><img src="{% static "images/product/product-07.jpg" %}"
+                                                                    alt=""></a>
+                                <span class="onsale">فروش ویژه!</span>
+                            </div>
+                            <div class="product-button">
+                                <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                            </div>
+                            <div class="product-content">
+                                <div class="price-box">
+                                    <span class="new-price">49000 تومان</span>
+                                    <span class="old-price">89000 تومان</span>
+                                </div>
+                                <h6 class="product-name"><a href="product-details.html">فست فود</a></h6>
+
+                                <div class="product-button-action">
+                                    <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Product End -->
+                    </div>
+                    <div class="product-col">
+                        <!-- Single Product Start -->
+                        <div class="single-product-wrap mt-10">
+                            <div class="product-image">
+                                <a href="product-details.html"><img src="{% static "images/product/product-08.jpg" %}"
+                                                                    alt=""></a>
+                                <span class="onsale">فروش ویژه!</span>
+                            </div>
+                            <div class="product-button">
+                                <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                            </div>
+                            <div class="product-content">
+                                <div class="price-box">
+                                    <span class="new-price">49000 تومان</span>
+                                    <span class="old-price">89000 تومان</span>
+                                </div>
+                                <h6 class="product-name"><a href="product-details.html">فست فود</a></h6>
+
+                                <div class="product-button-action">
+                                    <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Product End -->
+                    </div>
+                    <div class="product-col">
+                        <!-- Single Product Start -->
+                        <div class="single-product-wrap mt-10">
+                            <div class="product-image">
+                                <a href="product-details.html"><img src="{% static "images/product/product-01.jpg" %}"
+                                                                    alt=""></a>
+                                <span class="onsale">فروش ویژه!</span>
+                            </div>
+                            <div class="product-button">
+                                <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                            </div>
+                            <div class="product-content">
+                                <div class="price-box">
+                                    <span class="new-price">49000 تومان</span>
+                                    <span class="old-price">89000 تومان</span>
+                                </div>
+                                <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a></h6>
+                                <div class="product-button-action">
+                                    <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Product End -->
+                    </div>
+                    <div class="product-col">
+                        <!-- Single Product Start -->
+                        <div class="single-product-wrap mt-10">
+                            <div class="product-image">
+                                <a href="product-details.html"><img src="{% static "images/product/product-02.jpg" %}"
+                                                                    alt=""></a>
+                                <span class="onsale">فروش ویژه!</span>
+                            </div>
+                            <div class="product-button">
+                                <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                            </div>
+                            <div class="product-content">
+                                <div class="price-box">
+                                    <span class="new-price">49000 تومان</span>
+                                    <span class="old-price">89000 تومان</span>
+                                </div>
+                                <h6 class="product-name"><a href="product-details.html">همبرگر</a></h6>
+
+                                <div class="product-button-action">
+                                    <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Product End -->
+                    </div>
+                    <div class="product-col">
+                        <!-- Single Product Start -->
+                        <div class="single-product-wrap mt-10">
+                            <div class="product-image">
+                                <a href="product-details.html"><img src="{% static "images/product/product-03.jpg" %}"
+                                                                    alt=""></a>
+                                <span class="onsale">فروش ویژه!</span>
+                            </div>
+                            <div class="product-button">
+                                <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                            </div>
+                            <div class="product-content">
+                                <div class="price-box">
+                                    <span class="new-price">49000 تومان</span>
+                                    <span class="old-price">89000 تومان</span>
+                                </div>
+                                <h6 class="product-name"><a href="product-details.html">فست فود</a></h6>
+
+                                <div class="product-button-action">
+                                    <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Product End -->
+                    </div>
+                    <div class="product-col">
+                        <!-- Single Product Start -->
+                        <div class="single-product-wrap mt-10">
+                            <div class="product-image">
+                                <a href="product-details.html"><img src="{% static "images/product/product-04.jpg" %}"
+                                                                    alt=""></a>
+                                <span class="onsale">فروش ویژه!</span>
+                            </div>
+                            <div class="product-button">
+                                <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                            </div>
+                            <div class="product-content">
+                                <div class="price-box">
+                                    <span class="new-price">49000 تومان</span>
+                                    <span class="old-price">89000 تومان</span>
+                                </div>
+                                <h6 class="product-name"><a href="product-details.html">فست فود</a></h6>
+
+                                <div class="product-button-action">
+                                    <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Product End -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Product Area Start -->
+
+        <!-- Deals Off Area Start -->
+        <div class="deals-offer-area section-pt-100 section-pb-40 dealis-offer-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-3 col-md-4">
+                        <div class="deals-offer-title mb-20">
+                            <h2>تخفیفات این هفته</h2>
+                            <p>لورم ایپسوم متن ساختگی .</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-10 col-lg-9 col-md-8">
+                        <div class="row row-8 product-active-lg-4 ltr">
+                            <div class="product-col">
+                                <!-- Single Product Start -->
+                                <div class="single-product-wrap mt-30">
+                                    <div class="product-image">
+                                        <a href="product-details.html"><img src="{% static "images/product/product-04.jpg" %}"
+                                                                            alt=""></a>
+                                        <span class="onsale">فروش ویژه!</span>
+
+                                        <!-- countdown start -->
+                                        <div class="countdown-deals" data-countdown="2020/03/01"></div>
+                                        <!-- countdown end -->
+                                    </div>
+                                    <div class="product-button">
+                                        <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="price-box">
+                                            <span class="new-price">49000 تومان</span>
+                                            <span class="old-price">89000 تومان</span>
+                                        </div>
+                                        <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a></h6>
+                                        <div class="product-rating">
+                                            <ul>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li class="bad-reting"><a href="#"><i class="icon-star"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product-button-action">
+                                            <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Product End -->
+                            </div>
+                            <div class="product-col">
+                                <!-- Single Product Start -->
+                                <div class="single-product-wrap mt-30">
+                                    <div class="product-image">
+                                        <a href="product-details.html"><img src="{% static "images/product/product-05.jpg"  %}"
+                                                                            alt=""></a>
+                                        <span class="onsale">فروش ویژه!</span>
+
+                                        <!-- countdown start -->
+                                        <div class="countdown-deals" data-countdown="2020/03/01"></div>
+                                        <!-- countdown end -->
+                                    </div>
+                                    <div class="product-button">
+                                        <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="price-box">
+                                            <span class="new-price">49000 تومان</span>
+                                            <span class="old-price">89000 تومان</span>
+                                        </div>
+                                        <h6 class="product-name"><a href="product-details.html">محصول</a></h6>
+                                        <div class="product-rating">
+                                            <ul>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li class="bad-reting"><a href="#"><i class="icon-star"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product-button-action">
+                                            <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Product End -->
+                            </div>
+                            <div class="product-col">
+                                <!-- Single Product Start -->
+                                <div class="single-product-wrap mt-30">
+                                    <div class="product-image">
+                                        <a href="product-details.html"><img src="{% static "images/product/product-06.jpg" %}"
+                                                                            alt=""></a>
+                                        <span class="onsale">فروش ویژه!</span>
+
+                                    </div>
+                                    <div class="product-button">
+                                        <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="price-box">
+                                            <span class="new-price">49000 تومان</span>
+                                            <span class="old-price">89000 تومان</span>
+                                        </div>
+                                        <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a></h6>
+                                        <div class="product-rating">
+                                            <ul>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li class="bad-reting"><a href="#"><i class="icon-star"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product-button-action">
+                                            <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Product End -->
+                            </div>
+                            <div class="product-col">
+                                <!-- Single Product Start -->
+                                <div class="single-product-wrap mt-30">
+                                    <div class="product-image">
+                                        <a href="product-details.html"><img src="{% static "images/product/product-09.jpg" %}"
+                                                                            alt=""></a>
+                                        <span class="onsale">فروش ویژه!</span>
+
+                                        <!-- countdown start -->
+                                        <div class="countdown-deals" data-countdown="2020/03/01"></div>
+                                        <!-- countdown end -->
+                                    </div>
+                                    <div class="product-button">
+                                        <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="price-box">
+                                            <span class="new-price">49000 تومان</span>
+                                            <span class="old-price">89000 تومان</span>
+                                        </div>
+                                        <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a></h6>
+                                        <div class="product-rating">
+                                            <ul>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li class="bad-reting"><a href="#"><i class="icon-star"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product-button-action">
+                                            <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Product End -->
+                            </div>
+                            <div class="product-col">
+                                <!-- Single Product Start -->
+                                <div class="single-product-wrap mt-30">
+                                    <div class="product-image">
+                                        <a href="product-details.html"><img src="{% static "images/product/product-10.jpg" %}"
+                                                                            alt=""></a>
+                                        <span class="onsale">فروش ویژه!</span>
+
+                                        <!-- countdown start -->
+                                        <div class="countdown-deals" data-countdown="2020/03/01"></div>
+                                        <!-- countdown end -->
+                                    </div>
+                                    <div class="product-button">
+                                        <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="price-box">
+                                            <span class="new-price">49000 تومان</span>
+                                            <span class="old-price">89000 تومان</span>
+                                        </div>
+                                        <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a></h6>
+                                        <div class="product-rating">
+                                            <ul>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <li class="bad-reting"><a href="#"><i class="icon-star"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product-button-action">
+                                            <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Product End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Deals Off Area End -->
+
+        <!-- Product Area Start -->
+        <div class="product-area section-pt">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3>فروش مرکبات</h3>
+                        </div>
+                        <!-- Section Title End -->
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="tabs-categorys-list">
+                            <ul class="nav menu-tabs" role="tablist">
+                                <li class="active"><a class="active" href="#earrings" role="tab" data-toggle="tab">لبنیات</a>
+                                </li>
+                                <li><a href="#necklaces" role="tab" data-toggle="tab"> میوه </a></li>
+                                <li><a href="#bracelets" role="tab" data-toggle="tab">سبزیجات</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-wrapper-four ltr">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="earrings">
+                            <div class="row row-8 product-row-6-active">
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-01.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a>
+                                            </h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-02.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">همبرگر</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-03.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">فست فود</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-04.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">فست فود</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-01.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a>
+                                            </h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-02.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">همبرگر</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-02.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">همبرگر</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="necklaces">
+                            <div class="row row-8 product-row-6-active">
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-01.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a>
+                                            </h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-02.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">همبرگر</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-03.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">فست فود</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-04.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">فست فود</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-01.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a>
+                                            </h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-02.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">همبرگر</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-02.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">همبرگر</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="bracelets">
+                            <div class="row row-8 product-row-6-active">
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-01.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a>
+                                            </h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-02.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">همبرگر</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-03.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">فست فود</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-04.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">فست فود</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-01.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a>
+                                            </h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-02.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">همبرگر</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                                <div class="product-col">
+                                    <!-- Single Product Start -->
+                                    <div class="single-product-wrap mt-10">
+                                        <div class="product-image">
+                                            <a href="product-details.html"><img
+                                                    src="{% static "images/product/product-02.jpg" %}" alt=""></a>
+                                            <span class="onsale">فروش ویژه!</span>
+                                        </div>
+                                        <div class="product-button">
+                                            <a href="wishlist.html" class="add-to-wishlist"><i
+                                                    class="icon-heart"></i></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="price-box">
+                                                <span class="new-price">49000 تومان</span>
+                                                <span class="old-price">89000 تومان</span>
+                                            </div>
+                                            <h6 class="product-name"><a href="product-details.html">همبرگر</a></h6>
+
+                                            <div class="product-button-action">
+                                                <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Product Area Start -->
+
+        <!-- Banner Area Start -->
+        <div class="banner-area section-pb-30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-banner mb-30">
+                            <a href="#"><img src="{% static "images/banner/banner-03.jpg" %}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6  col-md-6">
+                        <div class="single-banner mb-30">
+                            <a href="#"><img src="{% static "images/banner/banner-04.jpg" %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Banner Area End -->
+
+        <!-- Testimonials Area Start -->
+        <div class="testimonials-area section-pt-100 section-pb-100 testimonial-bg">
+            <div class="container">
+                <div class="row testimonial-slider">
+                    <div class="col-lg-4">
+                        <div class="testimonial-wrap">
+                            <div class="quote-container">
+                                <div class="quote-image">
+                                    <img src="{% static "images/testimonial/testimonial-01.jpg" %}" alt="">
+                                </div>
+                                <div class="author">
+                                    <ul>
+                                        <li class="name">جنیفر</li>
+                                        <li class="title">مشتری</li>
+                                    </ul>
+                                </div>
+                                <div class="testimonials-text">
+                                    <p>پشتیبانی عالی بود،و به من کمک کرد تا با چندین مسئله که با اون مشکل داشتم، تقریبا
+                                        همان روز را حل کنم.لذت بردم!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial-wrap">
+                            <div class="quote-container">
+                                <div class="quote-image">
+                                    <img src="{% static "images/testimonial/testimonial-02.jpg" %}" alt="">
+                                </div>
+                                <div class="author">
+                                    <ul>
+                                        <li class="name">جنیفر</li>
+                                        <li class="title">مشتری</li>
+                                    </ul>
+                                </div>
+                                <div class="testimonials-text">
+                                    <p>پشتیبانی عالی بود،و به من کمک کرد تا با چندین مسئله که با اون مشکل داشتم، تقریبا
+                                        همان روز را حل کنم.لذت بردم!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial-wrap">
+                            <div class="quote-container">
+                                <div class="quote-image">
+                                    <img src="{% static "images/testimonial/testimonial-03.jpg" %}" alt="">
+                                </div>
+                                <div class="author">
+                                    <ul>
+                                        <li class="name">جنیفر</li>
+                                        <li class="title">مشتری</li>
+                                    </ul>
+                                </div>
+                                <div class="testimonials-text">
+                                    <p>پشتیبانی عالی بود،و به من کمک کرد تا با چندین مسئله که با اون مشکل داشتم، تقریبا
+                                        همان روز را حل کنم.لذت بردم!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial-wrap">
+                            <div class="quote-container">
+                                <div class="quote-image">
+                                    <img src="{% static "images/testimonial/testimonial-01.jpg" %}" alt="">
+                                </div>
+                                <div class="author">
+                                    <ul>
+                                        <li class="name">جنیفر</li>
+                                        <li class="title">مشتری</li>
+                                    </ul>
+                                </div>
+                                <div class="testimonials-text">
+                                    <p>پشتیبانی عالی بود،و به من کمک کرد تا با چندین مسئله که با اون مشکل داشتم، تقریبا
+                                        همان روز را حل کنم.لذت بردم!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial-wrap">
+                            <div class="quote-container">
+                                <div class="quote-image">
+                                    <img src="{% static "images/testimonial/testimonial-01.jpg" %}" alt="">
+                                </div>
+                                <div class="author">
+                                    <ul>
+                                        <li class="name">جنیفر</li>
+                                        <li class="title">مشتری</li>
+                                    </ul>
+                                </div>
+                                <div class="testimonials-text">
+                                    <p>پشتیبانی عالی بود،و به من کمک کرد تا با چندین مسئله که با اون مشکل داشتم، تقریبا
+                                        همان روز را حل کنم.لذت بردم!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonials Area End -->
+
+        <!-- Product Area Start -->
+        <div class="product-area section-pt">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3>محصولات پربازدید اخیر</h3>
+                        </div>
+                        <!-- Section Title End -->
+                    </div>
+                </div>
+
+                <div class="product-wrapper-four ltr">
+                    <div class="row row-8 product-row-6-active">
+                        <div class="product-col">
+                            <!-- Single Product Start -->
+                            <div class="single-product-wrap mt-10">
+                                <div class="product-image">
+                                    <a href="product-details.html"><img src="{% static "images/product/product-01.jpg" %}"
+                                                                        alt=""></a>
+                                    <span class="onsale">فروش ویژه!</span>
+                                </div>
+                                <div class="product-button">
+                                    <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                                </div>
+                                <div class="product-content">
+                                    <div class="price-box">
+                                        <span class="new-price">49000 تومان</span>
+                                        <span class="old-price">89000 تومان</span>
+                                    </div>
+                                    <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a></h6>
+
+                                    <div class="product-button-action">
+                                        <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Product End -->
+                        </div>
+                        <div class="product-col">
+                            <!-- Single Product Start -->
+                            <div class="single-product-wrap mt-10">
+                                <div class="product-image">
+                                    <a href="product-details.html"><img src="{% static "images/product/product-02.jpg" %}"
+                                                                        alt=""></a>
+                                    <span class="onsale">فروش ویژه!</span>
+                                </div>
+                                <div class="product-button">
+                                    <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                                </div>
+                                <div class="product-content">
+                                    <div class="price-box">
+                                        <span class="new-price">49000 تومان</span>
+                                        <span class="old-price">89000 تومان</span>
+                                    </div>
+                                    <h6 class="product-name"><a href="product-details.html">همبرگر</a></h6>
+
+                                    <div class="product-button-action">
+                                        <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Product End -->
+                        </div>
+                        <div class="product-col">
+                            <!-- Single Product Start -->
+                            <div class="single-product-wrap mt-10">
+                                <div class="product-image">
+                                    <a href="product-details.html"><img src="{% static "images/product/product-03.jpg" %}"
+                                                                        alt=""></a>
+                                    <span class="onsale">فروش ویژه!</span>
+                                </div>
+                                <div class="product-button">
+                                    <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                                </div>
+                                <div class="product-content">
+                                    <div class="price-box">
+                                        <span class="new-price">49000 تومان</span>
+                                        <span class="old-price">89000 تومان</span>
+                                    </div>
+                                    <h6 class="product-name"><a href="product-details.html">فست فود</a></h6>
+
+                                    <div class="product-button-action">
+                                        <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Product End -->
+                        </div>
+                        <div class="product-col">
+                            <!-- Single Product Start -->
+                            <div class="single-product-wrap mt-10">
+                                <div class="product-image">
+                                    <a href="product-details.html"><img src="{% static "images/product/product-04.jpg" %}"
+                                                                        alt=""></a>
+                                    <span class="onsale">فروش ویژه!</span>
+                                </div>
+                                <div class="product-button">
+                                    <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                                </div>
+                                <div class="product-content">
+                                    <div class="price-box">
+                                        <span class="new-price">49000 تومان</span>
+                                        <span class="old-price">89000 تومان</span>
+                                    </div>
+                                    <h6 class="product-name"><a href="product-details.html">فست فود</a></h6>
+
+                                    <div class="product-button-action">
+                                        <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Product End -->
+                        </div>
+                        <div class="product-col">
+                            <!-- Single Product Start -->
+                            <div class="single-product-wrap mt-10">
+                                <div class="product-image">
+                                    <a href="product-details.html"><img src="{% static "images/product/product-01.jpg" %}"
+                                                                        alt=""></a>
+                                    <span class="onsale">فروش ویژه!</span>
+                                </div>
+                                <div class="product-button">
+                                    <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                                </div>
+                                <div class="product-content">
+                                    <div class="price-box">
+                                        <span class="new-price">49000 تومان</span>
+                                        <span class="old-price">89000 تومان</span>
+                                    </div>
+                                    <h6 class="product-name"><a href="product-details.html">سالاد ماکارونی</a></h6>
+
+                                    <div class="product-button-action">
+                                        <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Product End -->
+                        </div>
+                        <div class="product-col">
+                            <!-- Single Product Start -->
+                            <div class="single-product-wrap mt-10">
+                                <div class="product-image">
+                                    <a href="product-details.html"><img src="{% static "images/product/product-02.jpg" %}"
+                                                                        alt=""></a>
+                                    <span class="onsale">فروش ویژه!</span>
+                                </div>
+                                <div class="product-button">
+                                    <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                                </div>
+                                <div class="product-content">
+                                    <div class="price-box">
+                                        <span class="new-price">49000 تومان</span>
+                                        <span class="old-price">89000 تومان</span>
+                                    </div>
+                                    <h6 class="product-name"><a href="product-details.html">همبرگر</a></h6>
+
+                                    <div class="product-button-action">
+                                        <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Product End -->
+                        </div>
+                        <div class="product-col">
+                            <!-- Single Product Start -->
+                            <div class="single-product-wrap mt-10">
+                                <div class="product-image">
+                                    <a href="product-details.html"><img src="{% static "images/product/product-02.jpg" %}"
+                                                                        alt=""></a>
+                                    <span class="onsale">فروش ویژه!</span>
+                                </div>
+                                <div class="product-button">
+                                    <a href="wishlist.html" class="add-to-wishlist"><i class="icon-heart"></i></a>
+                                </div>
+                                <div class="product-content">
+                                    <div class="price-box">
+                                        <span class="new-price">49000 تومان</span>
+                                        <span class="old-price">89000 تومان</span>
+                                    </div>
+                                    <h6 class="product-name"><a href="product-details.html">همبرگر</a></h6>
+
+                                    <div class="product-button-action">
+                                        <a href="#" class="add-to-cart">افزودن به سبد</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Product End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Product Area Start -->
+
+        <div class="our-brand-area section-pt-100 section-pb-100 brand-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="our-brand-active">
+                            <div class="brand-group">
+                                <div class="brand-item">
+                                    <a href="#"><img src="{% static "images/brand/brand-01.png" %}" alt=""></a>
+                                </div>
+                                <div class="brand-item">
+                                    <a href="#"><img src="{% static "images/brand/brand-03.png" %}" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="brand-group">
+                                <div class="brand-item">
+                                    <a href="#"><img src="{% static "images/brand/brand-02.png" %}" alt=""></a>
+                                </div>
+                                <div class="brand-item">
+                                    <a href="#"><img src="{% static "images/brand/brand-04.png" %}" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="brand-group">
+                                <div class="brand-item">
+                                    <a href="#"><img src="{% static "images/brand/brand-03.png" %}" alt=""></a>
+                                </div>
+                                <div class="brand-item">
+                                    <a href="#"><img src="{% static "images/brand/brand-01.png" %}" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="brand-group">
+                                <div class="brand-item">
+                                    <a href="#"><img src="{% static "images/brand/brand-04.png" %}" alt=""></a>
+                                </div>
+                                <div class="brand-item">
+                                    <a href="#"><img src="{% static "images/brand/brand-03.png" %}" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="brand-group">
+                                <div class="brand-item">
+                                    <a href="#"><img src="{% static "images/brand/brand-06.png" %}" alt=""></a>
+                                </div>
+                                <div class="brand-item">
+                                    <a href="#"><img src="{% static "images/brand/brand-03.png" %}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer>
+            <div class="footer-top section-pb section-pt-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="widget-footer mt-40">
+                                <h6 class="title-widget">اطلاعات تماس</h6>
+                                <div class="contact-call-wrap">
+                                    <img src="{% static "images/icon/img-headphone.png" %}" alt="">
+                                    <div class="footer-call">
+                                        <p>تلفن تماس :</p>
+                                        <h6>(+98) 02123 456 789</h6>
+                                    </div>
+                                </div>
+                                <div class="footer-addres">
+                                    <p>تهران , تجریش</p>
+                                    <p>info@gmail.com</p>
+                                </div>
+
+                                <ul class="social-icons">
+                                    <li>
+                                        <a class="facebook social-icon" href="#" title="Facebook" target="_blank"><i
+                                                class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="twitter social-icon" href="#" title="Twitter" target="_blank"><i
+                                                class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="instagram social-icon" href="#" title="Instagram" target="_blank"><i
+                                                class="fa fa-instagram"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="linkedin social-icon" href="#" title="Linkedin" target="_blank"><i
+                                                class="fa fa-linkedin"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="rss social-icon" href="#" title="Rss" target="_blank"><i
+                                                class="fa fa-rss"></i></a>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-6">
+                            <div class="widget-footer mt-40">
+                                <h6 class="title-widget">اوریجن</h6>
+                                <ul class="footer-list">
+                                    <li><a href="#">درباره ما</a></li>
+                                    <li><a href="#">تماس با ما</a></li>
+                                    <li><a href="#">چرا اوریجن</a></li>
+                                    <li><a href="#">وبلاگ</a></li>
+                                    <li><a href="#">راهنمای خرید</a></li>
+                                    <li><a href="#"> مجله اوریجن</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-6">
+                            <div class="widget-footer mt-40">
+                                <h6 class="title-widget">خدمات مشتریان</h6>
+                                <ul class="footer-list">
+                                    <li><a href="#">پاسخ به پرسش‌های متداول</a></li>
+                                    <li><a href="#">رویه‌های بازگرداندن کالا</a></li>
+                                    <li><a href="#">شرایط استفاده</a></li>
+                                    <li><a href="#">حریم خصوصی</a></li>
+                                    <li><a href="#">گزارش باگ</a></li>
+                                    <li><a href="#">رویه ارسال سفارش</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="widget-footer mt-40">
+                                <h6 class="title-widget">دریافت اپلیکیشن اوریجن</h6>
+                                <p>نزدیک‌ترین شعبه‌ی اوریجن در جیب شماست</p>
+                                <ul class="footer-list">
+                                    <li><img src="{% static "images/brand/img-googleplay.jpg" %}" alt=""></li>
+                                    <li><img src="{% static "images/brand/img-appstore.jpg" %}" alt=""></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="newletter-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="newletter-wrap">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="newsletter-title mb-30">
+                                            <h3>به ما ملحق شوید<br><span>خبرنامه</span></h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-5">
+                                        <div class="newsletter-dec mb-30">
+                                            <p>از تخفیف‌ها و جدیدترین‌های اوریجن باخبر شوید:</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-7">
+                                        <div class="newsletter-footer mb-30">
+                                            <input type="text" placeholder="ایمیل...">
+                                            <div class="subscribe-button">
+                                                <button class="subscribe-btn">اشتراک</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="copy-left-text">
+                                <p class="copyright-text">&copy; 1399 <strong> اوریجین </strong> ساخته شده ❤️ توسط <a
+                                        href="https://hasthemes.com/" target="_blank">Themefit</a></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="copy-right-image">
+                                <img src="{% static "images/icon/img-payment.png" %}" alt="">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+{% endblock %}
+
+

@@ -39,7 +39,8 @@ INSTALLED_APPS = [
 
     'users',  # NEW
     'rosetta',  # NEW
-    'course',  # NEW
+    'course_module',  # NEW
+    'home_module',  # NEW
     'modeltranslation',  # NEW
 
 ]
