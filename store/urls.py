@@ -24,12 +24,13 @@ from store import settings
 
 urlpatterns = []
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += [path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))] + static(
+    settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += i18n_patterns(
     path(_('admin/'), admin.site.urls),
     path('rosetta/', include('rosetta.urls')),
     path('', include('home_module.urls')),
-    path('auth/', include('authentication_module.urls')),
+    path('auth/', include('accounts_module.urls', namespace='accounts')),
     prefix_default_language=None
 )

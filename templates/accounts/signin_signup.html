@@ -2,6 +2,10 @@
 {% load static %}
 {% block ttile %}ورود{% endblock %}
 {% block content %}
+{% block footer_references %}
+    <script src="{% static "js/custom_js/account/index.js"%}"></script>
+{% endblock %}
+
 
 <!-- breadcrumb-area start -->
 <div class="breadcrumb-area">
@@ -44,7 +48,7 @@
                                 <div class="login-register-form">
                                     <form action="#" method="post">
                                         <div class="login-input-box">
-                                            <input type="text" name="user-name" placeholder="نام کاربری">
+                                            <input type="text" name="user-name" placeholder="نام کاربری / ایمیل">
                                             <input type="password" name="user-password" placeholder="رمز عبور">
                                         </div>
                                         <div class="button-box">
@@ -66,9 +70,9 @@
                                 <div class="login-register-form">
                                     <form action="#" method="post">
                                         <div class="login-input-box">
-                                            <input type="text" name="user-name" placeholder="شماره تلفن">
-                                            <input type="password" name="user-password" placeholder="رمز عبور">
                                             <input name="user-email" placeholder="ایمیل" type="email">
+                                            <input type="text" name="user-name" placeholder="نام کاربری">
+                                            <input type="password" name="user-password" placeholder="رمز عبور">
                                         </div>
                                         <div class="button-box">
                                             <button class="register-btn btn" type="submit"><span>ثبت نام</span></button>
