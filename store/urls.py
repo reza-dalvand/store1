@@ -30,7 +30,7 @@ urlpatterns += [path('api-auth/', include('rest_framework.urls', namespace='rest
 urlpatterns += i18n_patterns(
     path(_('admin/'), admin.site.urls),
     path('rosetta/', include('rosetta.urls')),
-    path('', include('home_module.urls')),
+    path('', include('home_module.urls', namespace='home')),
     path('auth/', include('accounts_module.urls', namespace='accounts')),
     prefix_default_language=None
 )

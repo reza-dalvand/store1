@@ -8,7 +8,7 @@ UserModel = get_user_model()
 class RegisterWithEmail(ModelBackend):
     def authenticate(self, request, username=None, password=None, email=None, **kwargs):
         try:
-            user = UserModel.objects.get(Q(username__iexact=username) | Q(email__iexact=email))
+            user = UserModel.objects.get(Q(username__iexact=email) | Q(email__iexact=email))
         except UserModel.DoesNotExist:
             UserModel().set_password(password)
             return

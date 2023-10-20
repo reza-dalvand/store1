@@ -1,15 +1,12 @@
 from django.contrib.auth import authenticate
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from rest_framework import status, generics
 from rest_framework.authtoken.models import Token
-from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.views import APIView
-
+from django.urls import reverse
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
-from accounts_module.models import CustomUser
 from accounts_module.serializer import RegisterUserSerializer
 
 
@@ -20,6 +17,9 @@ class RegisterAPIView(generics.GenericAPIView):
     """Registers user"""
     serializer_class = RegisterUserSerializer
 
+    def get(self, request):
+        return render(request, './accounts/signin_signup.html', {})
+
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         data = {}
@@ -29,7 +29,8 @@ class RegisterAPIView(generics.GenericAPIView):
             token = Token.objects.get(user=user_account).key
             data['token'] = token
 
-        return Response(data, status.HTTP_201_CREATED)
+        Response(data, status.HTTP_201_CREATED)
+        return HttpResponseRedirect(reverse('home:home'))
 
 
 class LoginAPIView(APIView):
@@ -44,16 +45,17 @@ class LoginAPIView(APIView):
         password = request.data.get("password")
         print(email, password, 'password')
         if email is None or password is None:
+
             return Response({'error': 'Please provide both email and password'},
                             status=status.HTTP_400_BAD_REQUEST)
         user = authenticate(email=email, password=password)
         if not user:
-            print(user)
             return Response({'error': 'Invalid Credentials'},
                             status=status.HTTP_404_NOT_FOUND)
         token, _ = Token.objects.get_or_create(user=user)
-        return Response({'token': token.key},
-                        status=status.HTTP_200_OK)
+        Response({'token': token.key},
+                 status=status.HTTP_200_OK)
+        return HttpResponseRedirect(reverse('home:home'))
 
 
 class LogoutAPIView(generics.GenericAPIView):
