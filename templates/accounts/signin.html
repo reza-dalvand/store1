@@ -1,0 +1,81 @@
+{% extends '_shared/_base_layout.html' %}
+{% load i18n %}
+{% load static %}
+{% block ttile %}ورود{% endblock %}
+{% block content %}
+    {% block footer_references %}
+        <script src="{% static "js/custom_js/account/index.js" %}"></script>
+    {% endblock %}
+
+    <!-- breadcrumb-area start -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- breadcrumb-list start -->
+                    <ul class="breadcrumb-list">
+                        <li class="breadcrumb-item"><a href="{% url 'home:home' %}">{% trans "صفحه اصلی" %}</a></li>
+                        <li class="breadcrumb-item active">{% trans "ورود - ثبت نام" %}</li>
+                    </ul>
+                    <!-- breadcrumb-list end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb-area end -->
+
+
+
+    <!-- main-content-wrap start -->
+    <div class="main-content-wrap section-ptb lagin-and-register-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 ml-auto mr-auto">
+                    <div class="login-register-wrapper">
+                        <!-- login-register-tab-list start -->
+                        <div class="login-register-tab-list nav">
+                            <a data-toggle="tab" href="#lg1">
+                                <h4> {% trans "ورود به سایت" %} </h4>
+                            </a>
+                        </div>
+                        <!-- login-register-tab-list end -->
+                        <div class="tab-content">
+                            <div id="lg1" class="tab-pane active">
+                                <div class="login-form-container">
+                                    <div class="login-register-form">
+                                        <form action="{% url 'accounts:login' %}" method="post">
+                                            {% csrf_token %}
+                                        <div class="login-input-box">
+                                            <input type="text" name="email"
+                                                   id="login-username"
+                                                   placeholder="{% trans "نام کاربری / ایمیل" %}">
+                                            <input type="password"
+                                                   name="password"
+                                                   id="login-password"
+                                                   placeholder="{% trans "رمز عبور" %}">
+                                        </div>
+                                        <p class="login-errors">{{ error }}</p>
+                                        <div class="button-box">
+                                            <div class="login-toggle-btn">
+                                                <input type="checkbox">
+                                                <label>{% trans "من را به یاد آور" %}</label>
+                                                <a href="#"> {% trans "رمز عبور خود را فراموش کرده اید؟" %}</a>
+                                            </div>
+                                            <div class="button-box">
+                                                <button class="login-btn btn" type="submit">
+                                                    <span>{% trans "ورود" %}</span></button>
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main-content-wrap end -->
+
+{% endblock %}

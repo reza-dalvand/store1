@@ -1,16 +1,16 @@
-function loginUser() {
+async function loginUser() {
     const Url = 'http://127.0.0.1:8000/auth/login'
     let Data = {
-        "email" : $('#login-username').val,
-        "password" : $('#login-password').val
+        "email": $('#login-username').val,
+        "password": $('#login-password').val
     }
     let otherParams = {
         headers: {'content-type': 'application/json; charset=UTF-8'},
         body: JSON.stringify(Data),
-        method: 'POST'
     }
-    $.get(Url, otherParams).then(res => {
-        console.log(res)
+    console.log('POST')
+    $.post(Url, otherParams).then(res => {
+        console.log(res.request, typeof res, 'besssss')
     });
 }
 

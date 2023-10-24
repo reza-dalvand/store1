@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     'modeltranslation',  # NEW
     'accounts_module',  # NEW
     'rest_framework',  # NEW
-    'rest_framework.authtoken',  # NEW
-
 ]
 
 MIDDLEWARE = [
@@ -63,8 +61,7 @@ ROOT_URLCONF = 'store.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -102,7 +99,7 @@ DATABASES = {
 
 AUTH_USER_MODEL = "accounts_module.CustomUser"
 AUTHENTICATION_BACKENDS = ['accounts_module.backends.RegisterWithEmail']  # new
-
+LOGIN_URL = 'accounts:login'
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -143,13 +140,6 @@ LOCALE_PATHS = [
     BASE_DIR / 'locale/',
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication', ],
-    # 'DEFAULT_PERMISSION_CLASSES': [
-    #     'rest_framework.permissions.IsAuthenticated',
-    # ],
-}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
