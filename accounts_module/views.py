@@ -5,10 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from rest_framework import status, generics
-from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.views import APIView
 from django.urls import reverse
-from rest_framework.response import Response
 from accounts_module.serializer import RegisterUserSerializer
 from django.utils.translation import gettext_lazy as _
 
@@ -56,9 +54,9 @@ class LoginAPIView(APIView):
                 # return Response({'login': 'Successful'}, status=status.HTTP_200_OK)
                 return HttpResponseRedirect(reverse('home:home'))
             # return Response({'login': 'User Not Found'}, status=status.HTTP_404_NOT_FOUND)
-            return render(request, './accounts/signin.html', {'error': 'کاربری با این مشخصات یافت نشد.'})
+            return render(request, './accounts/signin.html', {'error': _('کاربری با این مشخصات یافت نشد.')})
         # return Response({'login': 'Bad Request'}, status=status.HTTP_BAD_REQUEST)
-        return render(request, './accounts/signin.html', {'error': 'فیلد های مورد نظر را پر کنید'})
+        return render(request, './accounts/signin.html', {'error': _('فیلد های مورد نظر را پر کنید')})
 
 
 class LogoutAPIView(LoginRequiredMixin, APIView):
