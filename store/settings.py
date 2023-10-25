@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'modeltranslation',  # NEW
     'accounts_module',  # NEW
     'rest_framework',  # NEW
+    'site_settings',  # NEW
+    'contactUs_module',  # NEW
 ]
 
 MIDDLEWARE = [
@@ -98,8 +100,12 @@ DATABASES = {
 # }
 
 AUTH_USER_MODEL = "accounts_module.CustomUser"
-AUTHENTICATION_BACKENDS = ['accounts_module.backends.RegisterWithEmail']  # new
+AUTHENTICATION_BACKENDS = [
+    'accounts_module.backends.RegisterWithEmail',
+    "django.contrib.auth.backends.ModelBackend",
+]
 LOGIN_URL = 'accounts:login'
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -139,7 +145,6 @@ LANGUAGES = (
 LOCALE_PATHS = [
     BASE_DIR / 'locale/',
 ]
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

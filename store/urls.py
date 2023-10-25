@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from django.utils.translation import gettext_lazy as _
-
+from contactUs_module import views
 from store import settings
 
 urlpatterns = []
@@ -32,5 +32,6 @@ urlpatterns += i18n_patterns(
     path('rosetta/', include('rosetta.urls')),
     path('', include('home_module.urls', namespace='home')),
     path('auth/', include('accounts_module.urls', namespace='accounts')),
+    path('contact-us/', views.ContactUsView.as_view(), name='contact-us'),
     prefix_default_language=None
 )
