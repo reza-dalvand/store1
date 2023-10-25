@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rosetta',  # NEW
+    'rest_framework_swagger',  # NEW
+    'drf_yasg',  # NEW
     'course_module',  # NEW
     'home_module',  # NEW
     'modeltranslation',  # NEW
