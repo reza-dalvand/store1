@@ -160,3 +160,5 @@ cython_debug/
 #.idea/
 /accounts_module/migrations/
 /home_module/migrations/
+/site_settings/migrations/
+/contactUs_module/migrations/

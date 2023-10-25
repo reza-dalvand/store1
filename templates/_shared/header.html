@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 
 <header class="header">
@@ -29,14 +30,14 @@
                     <div class="top-info-wrap text-left">
                         <ul class="my-account-container">
                             {% if user.is_authenticated %}
-                                <li><a href="my-account.html">پروفایل</a></li>
+                                <li><a href="my-account.html">{% trans "پروفایل" %}</a></li>
                             {% else %}
-                                <li><a href={% url 'accounts:login' %}>ورود</a></li>
-                                <li><a href={% url 'accounts:register' %}>ثبت نام</a></li>
+                                <li><a href={% url 'accounts:login' %}>{% trans "ورود" %}</a></li>
+                                <li><a href={% url 'accounts:register' %}>{% trans "ثبت نام" %}</a></li>
                             {% endif %}
-                            <li><a href="cart.html">خرید</a></li>
-                            <li><a href="wishlist.html">علاقه مندی</a></li>
-                            <li><a href="checkout.html">پرداخت</a></li>
+                            <li><a href="cart.html">{% trans "خرید" %}</a></li>
+                            <li><a href="wishlist.html">{% trans "علاقه مندی" %}</a></li>
+                            <li><a href="checkout.html">{% trans "پرداخت" %}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -58,34 +59,7 @@
                 <div class="col-lg-5">
                     <div class="search-box-wrapper">
                         <div class="search-box-inner-wrap">
-                            <div class="search-title text-white d-flex">
-                                <p>کلمات کلیدی </p>
-                                <ul>
-                                    <li><a href="#">سفر ,</a></li>
-                                    <li><a href="#">وردپرس</a></li>
-                                </ul>
-                            </div>
                             <form class="search-box-inner">
-                                <div class="search-select-box">
-                                    <select class="nice-select">
-                                        <optgroup label="organic food">
-                                            <option value="volvo">همه</option>
-                                            <option value="saab">ساعت</option>
-                                            <option value="saab">صوتی</option>
-                                            <option value="saab">تصویری</option>
-                                            <option value="saab">اسپیکر</option>
-                                            <option value="saab">محصول</option>
-                                        </optgroup>
-                                        <optgroup label="Fashion">
-                                            <option value="mercedes">لباس زنانه</option>
-                                            <option value="audi">محصول</option>
-                                            <option value="audi">تیشرت</option>
-                                            <option value="audi">محصول</option>
-                                            <option value="audi">ساعت</option>
-                                            <option value="audi">محصول</option>
-                                        </optgroup>
-                                    </select>
-                                </div>
                                 <div class="search-field-wrap">
                                     <input type="text" class="search-field" placeholder="جستجو...">
 
@@ -134,16 +108,7 @@
                         <!--  Start Mainmenu Nav-->
                         <nav class="main-navigation">
                             <ul>
-                                <li class="active"><a href="index.html">خانه <i class="fa fa-angle-down"></i></a>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.html">صفحه اصلی 1</a></li>
-                                        <li><a href="index-2.html">صفحه اصلی 2</a></li>
-                                        <li><a href="index-3.html">صفحه اصلی 3</a></li>
-                                        <li><a href="index-4.html">صفحه اصلی 4</a></li>
-                                        <li><a href="index-5.html">صفحه اصلی 5</a></li>
-                                        <li><a href="index-6.html">صفحه اصلی 6</a></li>
-                                    </ul>
-                                </li>
+                                <li class="active"><a href={% url "home:home" %}>خانه </a></li>
 
                                 <li><a href="#">خرید <i class="fa fa-angle-down"></i></a>
                                     <ul class="mega-menu">
@@ -195,7 +160,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="about-us.html">درباره ما</a></li>
-                                <li><a href="contact-us.html">تماس با ما</a></li>
+                                <li><a href={% url "contact-us" %}>تماس با ما</a></li>
                             </ul>
                         </nav>
 

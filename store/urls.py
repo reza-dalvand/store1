@@ -19,18 +19,30 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from django.utils.translation import gettext_lazy as _
+from drf_yasg import openapi
+from drf_yasg.views import get_schema_view
+from rest_framework import permissions
+from rest_framework_swagger.views import get_swagger_view
 
+from contactUs_module import views
 from store import settings
 
 urlpatterns = []
+schema_view = get_schema_view(
+    openapi.Info(title="Document of Apis", default_version='v1'),
+    public=True,
+    permission_classes=[permissions.AllowAny],
+)
 
-urlpatterns += [path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))] + static(
+urlpatterns += [path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+                path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui')] + static(
     settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += i18n_patterns(
-    path(_('admin/'), admin.site.urls),
+    path('admin/', admin.site.urls),
     path('rosetta/', include('rosetta.urls')),
     path('', include('home_module.urls', namespace='home')),
     path('auth/', include('accounts_module.urls', namespace='accounts')),
+    path('contact-us/', views.ContactUsView.as_view(), name='contact-us'),
     prefix_default_language=None
 )
