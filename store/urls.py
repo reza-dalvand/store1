@@ -35,7 +35,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns += [path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-                path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui')] + static(
+                path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger')] + static(
     settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += i18n_patterns(
