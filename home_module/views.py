@@ -4,5 +4,8 @@ from django.shortcuts import render
 # Create your views here.
 
 def home(request):
-    print(request.user.is_authenticated, 'authe')
     return render(request, './index.html', {})
+
+
+def about_us(request):
+    return render(request, './about-us/about-us.html', {})

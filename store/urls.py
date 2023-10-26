@@ -18,14 +18,12 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from django.utils.translation import gettext_lazy as _
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
-from rest_framework_swagger.views import get_swagger_view
-
-from contactUs_module import views
+from contactUs_module.views import ContactUsView
 from store import settings
+from home_module.views import about_us
 
 urlpatterns = []
 schema_view = get_schema_view(
@@ -35,14 +33,18 @@ schema_view = get_schema_view(
 )
 
 urlpatterns += [path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-                path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger')] + static(
-    settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+                path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger')]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('rosetta/', include('rosetta.urls')),
     path('', include('home_module.urls', namespace='home')),
     path('auth/', include('accounts_module.urls', namespace='accounts')),
-    path('contact-us/', views.ContactUsView.as_view(), name='contact-us'),
+    path('contact-us/', ContactUsView.as_view(), name='contact-us'),
+    path('about-us/', about_us, name='about-us'),
     prefix_default_language=None
 )
