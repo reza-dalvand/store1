@@ -1,0 +1,29 @@
+{% load humanize %}
+{% load l10n %}
+{% load static %}
+<div class="product-col col-lg-3 col-md-4 col-sm-6">
+    <!-- Single Product Start -->
+    <div class="single-product-wrap mt-10">
+        <div class="product-image">
+            <a href="product-details.html"><img
+                    src="{% static "images/product/product-01.jpg" %}"
+                    alt=""></a>
+            <span class="onsale">فروش ویژه !</span>
+        </div>
+        <div class="product-button">
+            <a href="wishlist.html" class="add-to-wishlist"><i
+                    class="icon-heart"></i></a>
+        </div>
+        <div class="product-content">
+            <div class="price-box">
+                <span class="new-price">{{ product.price|intcomma:False }} تومان</span>
+            </div>
+            <h6 class="product-name"><a href="product-details.html">{{ product.name }}</a></h6>
+
+            <div class="product-button-action">
+                <a href="#" class="add-to-cart">افزودن به سبد</a>
+            </div>
+        </div>
+    </div>
+    <!-- Single Product End -->
+</div>

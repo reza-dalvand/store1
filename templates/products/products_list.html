@@ -1,0 +1,213 @@
+{% extends '_shared/_base_layout.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}فروشگاه{% endblock %}
+{% include 'components/breadcrumb_component.html' with page_name='فروشگاه' %}
+
+{% block content %}
+    <!-- main-content-wrap start -->
+    <div class="main-content-wrap shop-page section-ptb">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 order-lg-1 order-2">
+                    <!-- shop-sidebar-wrap start -->
+                    <div class="shop-sidebar-wrap">
+                        <div class="shop-box-area">
+
+                            <!--sidebar-categores-box start  -->
+                            <div class="sidebar-categores-box shop-sidebar mb-30">
+                                <h4 class="title">دسته بندی محصولات</h4>
+                                <!-- category-sub-menu start -->
+                                <div class="category-sub-menu">
+                                    <ul>
+                                        <li class="has-sub"><a href="#">کره و تخم مرغ</a>
+                                            <ul>
+                                                <li><a href="#">کره ترکیبی</a></li>
+                                                <li><a href="#">کره کره ای</a></li>
+                                                <li><a href="#">تخم مرغ محلی</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-sub"><a href="#">میوه های خشک شده</a>
+                                            <ul>
+                                                <li><a href="#">انبه</a></li>
+                                                <li><a href="#">پالسموس</a></li>
+                                                <li><a href="#">کشمش</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-sub"><a href="#">فست فود</a>
+                                            <ul>
+                                                <li><a href="#">همبرگر</a></li>
+                                                <li><a href="#">هات داگ</a></li>
+                                                <li><a href="#">کالباس</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-sub"><a href="#">گوشت تازه</a>
+                                            <ul>
+                                                <li><a href="#">گوشت مرغ </a></li>
+                                                <li><a href="#">گوشت ماهی</a></li>
+                                                <li><a href="#">گوشت گوسفند </a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-sub"><a href="#">میوه</a>
+                                            <ul>
+                                                <li><a href="#">انبه</a></li>
+                                                <li><a href="#">سیب</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-sub"><a href="#">شیر و خامه</a>
+                                            <ul>
+                                                <li><a href="#">شیر</a></li>
+                                                <li><a href="#">خامه</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-sub"><a href="#">سبزیجات</a>
+                                            <ul>
+                                                <li><a href="#">گوجه</a></li>
+                                                <li><a href="#">خیار</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- category-sub-menu end -->
+                            </div>
+                            <!--sidebar-categores-box end  -->
+
+                            <!-- shop-sidebar start -->
+                            <div class="shop-sidebar mb-30">
+                                <h4 class="title">جستجو بر اساس قیمت</h4>
+                                <!-- filter-price-content start -->
+                                <div class="filter-price-content">
+                                    <form action="#" method="post">
+                                        <div id="price-slider" class="price-slider"></div>
+                                        <div class="filter-price-wapper">
+                                            <a class="add-to-cart-button" href="#">
+                                                <span>فیلتر جستجو</span>
+                                            </a>
+                                            <div class="filter-price-cont">
+                                                <span>قیمت:</span>
+                                                <div class="input-type">
+                                                    <input type="text" id="min-price" readonly=""/>
+                                                </div>
+                                                <span>—</span>
+                                                <div class="input-type">
+                                                    <input type="text" id="max-price" readonly=""/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- filter-price-content end -->
+                            </div>
+                            <!-- shop-sidebar end -->
+
+                            <!-- shop-sidebar start -->
+                            <div class="shop-sidebar mb-30">
+                                <h4 class="title">فیلتر بر اساس رنگ</h4>
+
+                                <ul class="category-widget-list">
+                                    <li><a href="#">قرمز</a></li>
+                                    <li><a href="#">سفید</a></li>
+                                </ul>
+                            </div>
+                            <!-- shop-sidebar end -->
+                            <!-- shop-sidebar start -->
+                            <div class="shop-sidebar mb-30">
+                                <h4 class="title">برند محصول</h4>
+                                <ul class="sidebar-tag">
+                                    <li><a href="#">لوازم جانبی</a></li>
+                                    <li><a href="#">بلوز </a></li>
+                                    <li><a href="#">لباس </a></li>
+                                    <li><a href="#">دسکتاپ </a></li>
+                                    <li><a href="#">دیجیتال </a></li>
+                                    <li><a href="#">مد </a></li>
+                                    <li><a href="#">زنان </a></li>
+                                    <li><a href="#">مردان </a></li>
+                                    <li><a href="#"> لپ تاپ</a></li>
+                                    <li><a href="#">کیف</a></li>
+                                </ul>
+                            </div>
+                            <!-- shop-sidebar end -->
+                        </div>
+                    </div>
+                    <!-- shop-sidebar-wrap end -->
+                </div>
+                <div class="col-lg-9 order-lg-2 order-1">
+
+                    <div class="shop-banner mb-30">
+                        <img src="{% static "images/bg/shop-catergorypage.jpg" %}" alt="Shop banner">
+                    </div>
+
+                    <!-- shop-product-wrapper start -->
+                    <div class="shop-product-wrapper">
+                        <div class="row align-itmes-center">
+                            <div class="col">
+                                <!-- shop-top-bar start -->
+                                <div class="shop-top-bar">
+                                    <!-- product-view-mode start -->
+
+                                    <div class="product-mode">
+                                        <!--shop-item-filter-list-->
+                                        <ul class="nav shop-item-filter-list" role="tablist">
+                                            <li><a class="active grid-view" data-toggle="tab" href="#grid"><i
+                                                    class="ion-ios-keypad-outline"></i></a></li>
+                                        </ul>
+                                        <!-- shop-item-filter-list end -->
+                                    </div>
+                                    <!-- product-view-mode end -->
+                                    <!-- product-short start -->
+                                    <div class="product-short">
+                                        <p>مرتب‌ سازی بر اساس :</p>
+                                        <select class="nice-select" name="sortby">
+                                            <option value="trending">پرفروش‌ ترین‌</option>
+                                            <option value="sales">محبوب‌ترین</option>
+                                            <option value="sales">جدیدترین</option>
+                                            <option value="rating">ارزان‌ترین</option>
+                                            <option value="date">گران‌ترین</option>
+                                            <option value="date">سریع‌ترین ارسال</option>
+                                        </select>
+                                    </div>
+                                    <!-- product-short end -->
+                                </div>
+                                <!-- shop-top-bar end -->
+                            </div>
+                        </div>
+                        <!-- shop-products-wrap start -->
+                        <div class="shop-products-wrap">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="grid">
+                                    <div class="shop-product-wrap">
+                                        <div class="row row-8">
+                                            {% for product in products %}
+                                                {% include 'components/products_components/singel_product.html' with product=product %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- shop-products-wrap end -->
+
+                        <!-- paginatoin-area start -->
+                        <div class="paginatoin-area">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <ul class="pagination-box">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li>
+                                            <a class="Next" href="#">بعدی</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- paginatoin-area end -->
+                    </div>
+                    <!-- shop-product-wrapper end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main-content-wrap end -->
+{% endblock %}

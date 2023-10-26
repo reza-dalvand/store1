@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'rest_framework',  # NEW
     'site_settings',  # NEW
     'contactUs_module',  # NEW
+    'products_module',  # NEW
+    'django.contrib.humanize',  # NEW
 ]
 
 MIDDLEWARE = [
@@ -100,6 +102,14 @@ DATABASES = {
 #         'PORT': '3306',
 #     }
 # }
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
+
 
 AUTH_USER_MODEL = "accounts_module.CustomUser"
 AUTHENTICATION_BACKENDS = [
