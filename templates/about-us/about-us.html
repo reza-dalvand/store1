@@ -1,28 +1,11 @@
 {% extends '_shared/_base_layout.html' %}
 {% load static %}
 {% load i18n %}
-
-
-<!-- breadcrumb-area start -->
-<div class="breadcrumb-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <!-- breadcrumb-list start -->
-                <ul class="breadcrumb-list">
-                    <li class="breadcrumb-item"><a href="{% url 'home:home' %}">صفحه اصلی </a></li>
-                    <li class="breadcrumb-item active">درباره ما</li>
-                </ul>
-                <!-- breadcrumb-list end -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- breadcrumb-area end -->
-
+{% block ttile %}درباره ما{% endblock %}
 
 <!-- main-content-wrap start -->
 {% block content %}
+    {% include 'components/breadcrumb_component.html' with page_name='درباره ما' %}
     <div class="main-content-wrap">
         <div class="about-us-wlc section-pt section-pb">
             <div class="container">

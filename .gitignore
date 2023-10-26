@@ -162,3 +162,4 @@ cython_debug/
 /home_module/migrations/
 /site_settings/migrations/
 /contactUs_module/migrations/
+/products_module/migrations/

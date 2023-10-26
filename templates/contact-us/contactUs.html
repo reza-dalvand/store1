@@ -3,26 +3,7 @@
 {% load static %}
 {% block ttile %}تماس با ما{% endblock %}
 {% block content %}
-
-
-    <!-- breadcrumb-area start -->
-    <div class="breadcrumb-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <!-- breadcrumb-list start -->
-                    <ul class="breadcrumb-list">
-                        <li class="breadcrumb-item"><a href="index.html">صفحه اصلی</a></li>
-                        <li class="breadcrumb-item active">جزئیات محصول</li>
-                    </ul>
-                    <!-- breadcrumb-list end -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- breadcrumb-area end -->
-
-
+    {% include 'components/breadcrumb_component.html' with page_name='تماس با ما' %}
     <!-- main-content-wrap start -->
     <div class="main-content-wrap contact-wrap">
         <div class="contact-form-area section-ptb">
@@ -67,7 +48,7 @@
                         <div class="contact-info-wrap">-
                             {% if success_message %}
                                 <div class="alert alert-success" role="alert">
-                                    {% trans  success_message %}
+                                    {% trans success_message %}
                                 </div>
                             {% endif %}
 
@@ -124,5 +105,4 @@
         </div>
     </div>
     <!-- main-content-wrap end -->
-
 {% endblock %}
