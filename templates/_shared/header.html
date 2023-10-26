@@ -30,14 +30,14 @@
                     <div class="top-info-wrap text-left">
                         <ul class="my-account-container">
                             {% if user.is_authenticated %}
-                                <li><a href="my-account.html">{% trans "پروفایل" %}</a></li>
+                                <li><a href="my-account.html">{% trans "profile" %}</a></li>
                             {% else %}
-                                <li><a href={% url 'accounts:login' %}>{% trans "ورود" %}</a></li>
-                                <li><a href={% url 'accounts:register' %}>{% trans "ثبت نام" %}</a></li>
+                                <li><a href={% url 'accounts:login' %}>{% trans "login" %}</a></li>
+                                <li><a href={% url 'accounts:register' %}>{% trans "register" %}</a></li>
                             {% endif %}
-                            <li><a href="cart.html">{% trans "خرید" %}</a></li>
-                            <li><a href="wishlist.html">{% trans "علاقه مندی" %}</a></li>
-                            <li><a href="checkout.html">{% trans "پرداخت" %}</a></li>
+                            <li><a href="cart.html">{% trans "buy" %}</a></li>
+                            <li><a href="wishlist.html">{% trans "favarites" %}</a></li>
+                            <li><a href="checkout.html">{% trans "pay" %}</a></li>
                         </ul>
                     </div>
                 </div>

@@ -9,8 +9,8 @@ class SiteSettings(models.Model):
     short_description = models.TextField(_('short description'))
     description = models.TextField(_('description'))
     address = models.TextField(_('address'), null=True)
-    mobile = models.IntegerField(_('phone number'), null=True)
-    phone_number = models.IntegerField(_('phone number'), null=True)
+    mobile = models.CharField(_('mobile'), null=True, max_length=11)
+    phone_number = models.CharField(_('phone number'), null=True, max_length=11)
 
     def __str__(self):
         return self.title

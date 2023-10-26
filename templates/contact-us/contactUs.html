@@ -40,15 +40,15 @@
                                             <i class="fa fa-home"></i>
                                             <h4>آدرس ما</h4>
                                         </div>
-                                        <p>تهران , تجریش , خیابان نیلوفر</p>
+                                        <p>{{ settings.address }}</p>
                                     </li>
                                     <li>
                                         <div class="contact-title">
                                             <i class="fa fa-phone"></i>
                                             <h4>شماره تلفن :</h4>
                                         </div>
-                                        <p>موبایل : 09123456789<br>
-                                            تلفن :0213456789
+                                        <p>موبایل : {{ settings.mobile }}<br>
+                                            تلفن :{{ settings.phone_number }}
                                         </p>
                                     </li>
                                     <li>
@@ -56,7 +56,7 @@
                                             <i class="fa fa-envelope-open-o"></i>
                                             <h4>ایمیل</h4>
                                         </div>
-                                        <p>info@gmail.com<br>
+                                        <p>{{ settings.email }}<br>
                                             support@gmail.com</p>
                                     </li>
                                 </ul>
@@ -64,12 +64,13 @@
                         </div>
                     </div>
                     <div class="col-lg-7 offset-lg-1">
-                        <div class="contact-info-wrap">
+                        <div class="contact-info-wrap">-
                             {% if success_message %}
                                 <div class="alert alert-success" role="alert">
-                                    {{ success_message }}
+                                    {% trans  success_message %}
                                 </div>
                             {% endif %}
+
                             <div class="contact-title mb-30">
                                 <h3>یک پیام برای ما بگذارید</h3>
                             </div>

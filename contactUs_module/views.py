@@ -6,13 +6,16 @@ from rest_framework.response import Response
 
 from contactUs_module.models import ContactUs
 from contactUs_module.serializers import ContactUsSerializer
+from site_settings.models import SiteSettings
 
 
 class ContactUsView(GenericAPIView):
     serializer_class = ContactUsSerializer
+    queryset = SiteSettings.objects.all()[0]
 
     def get(self, request, *args, **kwargs):
-        return render(request, './contact-us/contactUs.html', {})
+        print(self.queryset, 'queryset')
+        return render(request, './contact-us/contactUs.html', {'settings': self.queryset})
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)

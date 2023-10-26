@@ -12,8 +12,8 @@
                 <div class="col-12">
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
-                        <li class="breadcrumb-item"><a href="{% url 'home:home' %}">{% trans "صفحه اصلی" %}</a></li>
-                        <li class="breadcrumb-item active">{% trans "ورود - ثبت نام" %}</li>
+                        <li class="breadcrumb-item"><a href="{% url 'home:home' %}">{% trans "index" %}</a></li>
+                        <li class="breadcrumb-item active">{% trans "Register" %}</li>
                     </ul>
                     <!-- breadcrumb-list end -->
                 </div>
@@ -33,7 +33,7 @@
                         <!-- login-register-tab-list start -->
                         <div class="login-register-tab-list nav">
                             <a data-toggle="tab" href="#lg2">
-                                <h4>{% trans "ثبت نام کاربر" %} </h4>
+                                <h4>{% trans "Register User" %} </h4>
                             </a>
                         </div>
                         <!-- login-register-tab-list end -->
@@ -44,25 +44,25 @@
                                         {% csrf_token %}
                                         <div class="login-input-box">
                                             <input type="email" name="email" id="register-email"
-                                                   placeholder="{% trans "ایمیل" %}">
+                                                   placeholder="{% trans "email" %}">
                                             <p class="login-errors">{{ field_errors.email }}</p>
 
                                             <input type="text" name="username" id="register-username"
-                                                   placeholder="{% trans "نام کاربری" %}">
+                                                   placeholder="{% trans "username" %}">
                                             <p class="login-errors">{{ field_errors.username }}</p>
 
                                             <input type="password" name="password" id="register-password"
-                                                   placeholder="{% trans "رمز عبور" %}">
+                                                   placeholder="{% trans "password" %}">
                                             <p class="login-errors">{{ field_errors.password }}</p>
 
                                             <input type="password" name="password2" id="register-password2"
-                                                   placeholder="{% trans "تکرار رمز عبور" %}">
+                                                   placeholder="{% trans "confierm password" %}">
                                             <p class="login-errors">{{ field_errors.password2 }}</p>
 
                                         </div>
                                         <div class="button-box">
                                             <button class="register-btn btn" type="submit">
-                                                <span>{% trans "ثبت نام" %}</span>
+                                                <span>{% trans "register" %}</span>
                                             </button>
                                         </div>
                                     </form>

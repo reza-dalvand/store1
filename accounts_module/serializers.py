@@ -19,10 +19,10 @@ class RegisterUserSerializer(serializers.ModelSerializer):
 
         if password != password2:
             raise serializers.ValidationError(
-                {'password2': _('پسورد با تایید پسورد همخوانی ندارد')})
+                {'password2': _('passwords not match'), })
         elif len(password) < 4:
             raise serializers.ValidationError(
-                {'password2': _('طول پسورد باید بیشتر از 4 کاراکتر باشد')})
+                {'password2': _('password must be at least 4 characters')})
         return data
 
     def prepare_user_account(self):
