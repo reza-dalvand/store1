@@ -44,6 +44,7 @@ urlpatterns += i18n_patterns(
     path('rosetta/', include('rosetta.urls')),
     path('', include('home_module.urls', namespace='home')),
     path('auth/', include('accounts_module.urls', namespace='accounts')),
+    # path('products/', include('products_module.urls', namespace='products')),
     path('contact-us/', ContactUsView.as_view(), name='contact-us'),
     path('about-us/', about_us, name='about-us'),
     prefix_default_language=None

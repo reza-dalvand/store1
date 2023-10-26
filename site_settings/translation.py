@@ -1,7 +1,7 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import SiteSettings
+from .models import SiteSetting
 
 
-@register(SiteSettings)
+@register(SiteSetting)
 class CourseTranslationOptions(TranslationOptions):
     fields = ('title', 'short_description', 'description', 'address')
