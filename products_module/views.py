@@ -17,6 +17,7 @@ class ProductsListView(ListAPIView, ListView):
 
     def get(self, request, *args, **kwargs):
         serializer = self.list(request, *args, **kwargs)
+        print(serializer.data)
         if serializer.data:
             return render(request, 'products/products_list.html', {'products': serializer.data})
         # return Response({'products': serializer.data}, status.HTTP_404_NOTFOUND)

@@ -6,8 +6,8 @@
     <div class="single-product-wrap mt-10">
         <div class="product-image">
             <a href="product-details.html"><img
-                    src="{% static "images/product/product-01.jpg" %}"
-                    alt=""></a>
+                    src="{{ product.image }}"
+                    alt="{{ product.name }}"></a>
             <span class="onsale">فروش ویژه !</span>
         </div>
         <div class="product-button">
