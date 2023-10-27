@@ -176,11 +176,17 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="grid">
                                     <div class="shop-product-wrap">
-                                        <div class="row row-8">
-                                            {% for product in products %}
-                                                {% include 'components/products_components/singel_product.html' with product=product %}
-                                            {% endfor %}
-                                        </div>
+                                        {% if error %}
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ error }}
+                                            </div>
+                                        {% else %}
+                                            <div class="row row-8">
+                                                {% for product in products %}
+                                                    {% include 'components/products_components/singel_product.html' with product=product %}
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
