@@ -21,7 +21,6 @@ class RegisterAPIView(generics.GenericAPIView):
 
     def get(self, request):
         if request.user.is_authenticated:
-            # return Response({'login': 'redirect to home'}, status=status.HTTP_302_FOUND)
             return HttpResponseRedirect(reverse('home:home'))
         return render(request, './accounts/signup.html', {})
 
@@ -32,12 +31,10 @@ class RegisterAPIView(generics.GenericAPIView):
             field_errors = {}
             for field_name, field_error in serializer.errors.items():
                 field_errors[field_name] = field_error[0]
-            # return Response({'Register': 'Bad Request'}, status.HTTP_400_BAD_REQUEST)
             return render(request, './accounts/signup.html',
                           {"field_errors": field_errors})
 
         serializer.save()
-        # return Response(data, status.HTTP_201_CREATED)
         return HttpResponseRedirect(reverse('accounts:login'))
 
 
@@ -46,9 +43,7 @@ class LoginAPIView(APIView):
 
     def get(self, request):
         if request.user.is_authenticated:
-            # return Response({'login': 'redirect to home'}, status=status.HTTP_302_FOUND)
             return HttpResponseRedirect(reverse('home:home'))
-        # return Response({'login': 'Successful'}, status=status.HTTP_200_OK)
         return render(request, './accounts/signin.html', {})
 
     def post(self, request, *args, **kwargs):
@@ -58,11 +53,8 @@ class LoginAPIView(APIView):
             user = authenticate(email=email, password=password)
             if user:
                 login(request, user)
-                # return Response({'login': 'Successful'}, status=status.HTTP_200_OK)
                 return HttpResponseRedirect(reverse('home:home'))
-            # return Response({'login': 'User Not Found'}, status=status.HTTP_404_NOT_FOUND)
             return render(request, './accounts/signin.html', {'error': _('user not found')})
-        # return Response({'login': 'Bad Request'}, status=status.HTTP_BAD_REQUEST)
         return render(request, './accounts/signin.html', {'error': _('fields not be empty')})
 
 

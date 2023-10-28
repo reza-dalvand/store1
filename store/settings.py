@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'contactUs_module',  # NEW
     'products_module',  # NEW
     'django.contrib.humanize',  # NEW
+    'django_render_partial',  # NEW
+
 ]
 
 MIDDLEWARE = [
@@ -105,11 +107,12 @@ DATABASES = {
 
 
 REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 1,
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-    ]
+    ],
 }
-
 
 AUTH_USER_MODEL = "accounts_module.CustomUser"
 AUTHENTICATION_BACKENDS = [

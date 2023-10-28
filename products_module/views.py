@@ -1,24 +1,22 @@
 from django.db.models import Q
-from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 from rest_framework.permissions import AllowAny
-from products_module.models import Product
-from rest_framework.generics import ListAPIView
-from products_module.serializers import ProductSerializer
-from django.utils.translation import gettext_lazy as _
+from products_module.models import Product, ProductCategory
 
 
-class ProductsListView(ListAPIView, ListView):
-    context_object_name = 'products'
-    queryset = Product.objects.filter(Q(is_published=True) & Q(soft_deleted=False))
+class ProductsListView(ListView):
     permission_classes = [AllowAny]
-    serializer_class = ProductSerializer
+    context_object_name = 'products'
     template_name = 'products/products_list.html'
+    queryset = Product.objects.filter(Q(is_published=True) & Q(soft_deleted=False))
+    # django pagination
+    paginate_by = 1
 
-    def get(self, request, *args, **kwargs):
-        serializer = self.list(request, *args, **kwargs)
-        print(serializer.data)
-        if serializer.data:
-            return render(request, 'products/products_list.html', {'products': serializer.data})
-        # return Response({'products': serializer.data}, status.HTTP_404_NOTFOUND)
-        return render(request, 'products/products_list.html', {'error': _('No products found')})
+
+class CategoriesComponent(TemplateView):
+    template_name = 'components/products_list/categories_component.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoriesComponent, self).get_context_data(**kwargs)
+        context['categories'] = ProductCategory.objects.all()
+        return context
