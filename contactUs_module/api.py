@@ -1,7 +1,5 @@
-from django.shortcuts import render
-from rest_framework import mixins, status
+from rest_framework import status
 from rest_framework.generics import GenericAPIView
-from django.utils.translation import gettext_lazy as _
 from rest_framework.response import Response
 from contactUs_module.serializers import ContactUsSerializer
 from site_settings.models import SiteSetting
