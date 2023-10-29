@@ -31,13 +31,13 @@
                         <ul class="my-account-container">
                             {% if user.is_authenticated %}
                                 <li><a href="my-account.html">{% trans "profile" %}</a></li>
+                                <li><a href="cart.html">{% trans "buy" %}</a></li>
+                                <li><a href="wishlist.html">{% trans "favarites" %}</a></li>
+                                <li><a href="{% url 'accounts:logout' %}">{% trans "logout" %}</a></li>
                             {% else %}
                                 <li><a href={% url 'accounts:login' %}>{% trans "login" %}</a></li>
                                 <li><a href={% url 'accounts:register' %}>{% trans "register" %}</a></li>
                             {% endif %}
-                            <li><a href="cart.html">{% trans "buy" %}</a></li>
-                            <li><a href="wishlist.html">{% trans "favarites" %}</a></li>
-                            <li><a href="checkout.html">{% trans "pay" %}</a></li>
                         </ul>
                     </div>
                 </div>

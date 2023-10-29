@@ -49,16 +49,6 @@
 
                             <!-- shop-sidebar start -->
                             <div class="shop-sidebar mb-30">
-                                <h4 class="title">فیلتر بر اساس رنگ</h4>
-
-                                <ul class="category-widget-list">
-                                    <li><a href="#">قرمز</a></li>
-                                    <li><a href="#">سفید</a></li>
-                                </ul>
-                            </div>
-                            <!-- shop-sidebar end -->
-                            <!-- shop-sidebar start -->
-                            <div class="shop-sidebar mb-30">
                                 <h4 class="title">برند محصول</h4>
                                 <ul class="sidebar-tag">
                                     <li><a href="#">لوازم جانبی</a></li>
@@ -123,17 +113,17 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="grid">
                                     <div class="shop-product-wrap">
-                                        {% if error %}
-                                            <div class="alert alert-danger" role="alert">
-                                                {{ error }}
-                                            </div>
-                                        {% else %}
-                                            <div class="row row-8">
+                                        <div class="row row-8">
+                                            {% if not products|length == 0 %}
                                                 {% for product in products %}
                                                     {% include 'components/products_list/singel_product.html' with product=product %}
                                                 {% endfor %}
-                                            </div>
-                                        {% endif %}
+                                            {% else %}
+                                                <div class="alert alert-danger justify-content-center w-100 text-center" role="alert">
+                                                    {% trans 'Producs Not Found' %}
+                                                </div>
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +143,8 @@
                                         {% endif %}
                                         <li class="active"><a href="#">{{ page_obj.number }}</a></li>
                                         {% if page_obj.has_next %}
-                                            <li><a href="?page={{ page_obj.paginator.num_pages }}">{% trans 'last' %} &raquo;</a></li>
+                                            <li><a href="?page={{ page_obj.paginator.num_pages }}">{% trans 'last' %}
+                                                &raquo;</a></li>
                                         {% endif %}
 
                                     </ul>

@@ -8,9 +8,14 @@ class ProductsListView(ListView):
     permission_classes = [AllowAny]
     context_object_name = 'products'
     template_name = 'products/products_list.html'
-    queryset = Product.objects.filter(Q(is_published=True) & Q(soft_deleted=False))
-    # django pagination
     paginate_by = 1
+
+    def get_queryset(self):
+        slug = self.request.GET.get('slug')
+        if slug:
+            return Product.objects.filter(is_published=True, soft_deleted=False,
+                                          category__slug=slug)
+        return Product.objects.filter(is_published=True, soft_deleted=False)
 
 
 class CategoriesComponent(TemplateView):

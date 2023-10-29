@@ -1,5 +1,5 @@
 {% load humanize %}
-{% load l10n %}
+{% load i18n %}
 {% load static %}
 <div class="product-col col-lg-3 col-md-4 col-sm-6">
     <!-- Single Product Start -->
@@ -16,7 +16,7 @@
         </div>
         <div class="product-content">
             <div class="price-box">
-                <span class="new-price">{{ product.price|intcomma:False }} تومان</span>
+                <span class="new-price">{{ product.price|intcomma:False }} {% trans 'تومان' %}</span>
             </div>
             <h6 class="product-name"><a href="product-details.html">{{ product.name }}</a></h6>
 
