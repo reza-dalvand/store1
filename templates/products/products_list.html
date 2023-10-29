@@ -46,24 +46,7 @@
                                 <!-- filter-price-content end -->
                             </div>
                             <!-- shop-sidebar end -->
-
-                            <!-- shop-sidebar start -->
-                            <div class="shop-sidebar mb-30">
-                                <h4 class="title">برند محصول</h4>
-                                <ul class="sidebar-tag">
-                                    <li><a href="#">لوازم جانبی</a></li>
-                                    <li><a href="#">بلوز </a></li>
-                                    <li><a href="#">لباس </a></li>
-                                    <li><a href="#">دسکتاپ </a></li>
-                                    <li><a href="#">دیجیتال </a></li>
-                                    <li><a href="#">مد </a></li>
-                                    <li><a href="#">زنان </a></li>
-                                    <li><a href="#">مردان </a></li>
-                                    <li><a href="#"> لپ تاپ</a></li>
-                                    <li><a href="#">کیف</a></li>
-                                </ul>
-                            </div>
-                            <!-- shop-sidebar end -->
+                            {% include 'components/products_list/brands_component.html' with brands=brands %}
                         </div>
                     </div>
                     <!-- shop-sidebar-wrap end -->
@@ -119,7 +102,8 @@
                                                     {% include 'components/products_list/singel_product.html' with product=product %}
                                                 {% endfor %}
                                             {% else %}
-                                                <div class="alert alert-danger justify-content-center w-100 text-center" role="alert">
+                                                <div class="alert alert-danger justify-content-center w-100 text-center"
+                                                     role="alert">
                                                     {% trans 'Producs Not Found' %}
                                                 </div>
                                             {% endif %}

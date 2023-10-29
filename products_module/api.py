@@ -7,11 +7,11 @@ from rest_framework.generics import ListAPIView
 from products_module.serializers import ProductSerializer
 
 
-class ProductsListView(ListAPIView):
+class ProductsListApi(ListAPIView):
     permission_classes = [AllowAny]
 
     def get(self, request, *args, **kwargs):
-        products = self.paginate_queryset(Product.objects.filter(Q(is_published=True) & Q(soft_deleted=False)))
+        products = self.paginate_queryset(Product.objects.filter(is_published=True, soft_deleted=False))
         serializer = ProductSerializer(products, many=True)
         if serializer.data:
             return Response({'products': serializer.data}, status.HTTP_200_OK)

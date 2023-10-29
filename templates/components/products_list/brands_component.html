@@ -1,0 +1,10 @@
+<div class="shop-sidebar mb-30">
+    <h4 class="title">برند محصول</h4>
+    <ul class="sidebar-tag">
+        {% for brand in brands %}
+            <li>
+                <a href="{% url 'products:products_list' %}?&brand={{ brand.slug }}">{{ brand.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

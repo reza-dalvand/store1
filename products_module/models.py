@@ -5,6 +5,19 @@ from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
+
+class ProductBrand(models.Model):
+    name = models.CharField(_('name'), max_length=255)
+    slug = models.SlugField(_('slug'), blank=True, max_length=255)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        return super(ProductBrand, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+
 class ProductCategory(models.Model):
     parent = models.ForeignKey('ProductCategory', null=True, blank=True,
                                on_delete=models.CASCADE)
@@ -22,6 +35,8 @@ class ProductCategory(models.Model):
 class Product(models.Model):
     category = models.ForeignKey(ProductCategory, null=True, blank=True, related_name='category',
                                  on_delete=models.CASCADE)
+    brand = models.ForeignKey(ProductBrand, null=True, blank=True, related_name='brand',
+                              on_delete=models.CASCADE)
     name = models.CharField(_('name'), max_length=255)
     slug = models.SlugField(_('slug'), max_length=255)
     image = models.ImageField(_('image'), upload_to='products')
