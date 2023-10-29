@@ -11,7 +11,13 @@ class ProductsListApi(ListAPIView):
     permission_classes = [AllowAny]
 
     def get(self, request, *args, **kwargs):
+        slug = request.query_params.get('slug')
+        brand = request.query_params.get('brand')
         products = self.paginate_queryset(Product.objects.filter(is_published=True, soft_deleted=False))
+        if slug or brand:
+            products = Product.objects.filter(Q(brand__slug__exact=brand) |
+                                              Q(category__slug__exact=slug),
+                                              is_published=True, soft_deleted=False)
         serializer = ProductSerializer(products, many=True)
         if serializer.data:
             return Response({'products': serializer.data}, status.HTTP_200_OK)

@@ -5,4 +5,5 @@ from .views import ProductsListView
 
 app_name = 'products'
 
-urlpatterns = [path('', ProductsListApi.as_view(), name='products_list')]
+urlpatterns = [path('', ProductsListView.as_view(), name='products_list'),
+               path('api/', ProductsListApi.as_view(), name='products_list_api')]
