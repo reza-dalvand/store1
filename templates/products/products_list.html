@@ -3,7 +3,7 @@
 {% load static %}
 {% load i18n %}
 {% block title %}فروشگاه{% endblock %}
-{% include 'components/_shared_components/breadcrumb.html' with page_name='فروشگاه' %}
+{% include '_shared/breadcrumb.html' with page_name='فروشگاه' %}
 
 {% block content %}
     <!-- main-content-wrap start -->
@@ -75,17 +75,25 @@
                                     </div>
                                     <!-- product-view-mode end -->
                                     <!-- product-short start -->
-                                    <div class="product-short">
-                                        <p>مرتب‌ سازی بر اساس :</p>
-                                        <select class="nice-select" name="sortby">
-                                            <option value="trending">پرفروش‌ ترین‌</option>
-                                            <option value="sales">محبوب‌ترین</option>
-                                            <option value="sales">جدیدترین</option>
-                                            <option value="rating">ارزان‌ترین</option>
-                                            <option value="date">گران‌ترین</option>
-                                            <option value="date">سریع‌ترین ارسال</option>
-                                        </select>
-                                    </div>
+                                    <form>
+                                        <div class="product-short">
+                                            <p>مرتب‌ سازی بر اساس :</p>
+                                            <select class="nice-select" name="sort-by" onchange="this.form.submit()">
+                                                <option {% if sort_by == 'all' %}selected{% endif %}
+                                                        value="all">همه
+                                                </option>
+                                                <option {% if sort_by == 'new' %}selected{% endif %} value="new">
+                                                    جدیدترین
+                                                </option>
+                                                <option {% if sort_by == 'cheep' %}selected{% endif %} value="cheep">
+                                                    ارزان‌ترین
+                                                </option>
+                                                <option {% if sort_by == 'expensive' %}selected{% endif %}
+                                                        value="expensive">گران‌ترین
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </form>
                                     <!-- product-short end -->
                                 </div>
                                 <!-- shop-top-bar end -->

@@ -1,36 +1,44 @@
 from django.db.models import Q
+from django.views import View
 from django.views.generic import ListView, TemplateView
 from rest_framework.permissions import AllowAny
 from products_module.models import Product, ProductCategory, ProductBrand
-
+from store import settings
 
 class ProductsListView(ListView):
     permission_classes = [AllowAny]
-    queryset = Product.objects.filter(is_published=True, soft_deleted=False)
     context_object_name = 'products'
     template_name = 'products/products_list.html'
     paginate_by = 1
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super(ProductsListView, self).get_context_data(**kwargs)
+    def get_queryset(self):
         slug = self.request.GET.get('slug')
         brand = self.request.GET.get('brand')
         min_price = self.request.GET.get('min-price')
         max_price = self.request.GET.get('max-price')
-        print(min_price, max_price, 'maxxxxxx')
-        context['brands'] = ProductBrand.objects.all()
+        sort_by = self.request.GET.get('sort-by')
+        queryset = Product.objects.filter(is_published=True, soft_deleted=False)
 
-        '''filter with query parameters'''
         if slug or brand:
-            context['products'] = Product.objects.filter(Q(brand__slug__exact=brand) |
-                                                         Q(category__slug__exact=slug),
-                                                         is_published=True,
-                                                         soft_deleted=False)
-        elif max_price or min_price:
-            context['products'] = Product.objects.filter(price__lte=max_price.split(' ')[0],
-                                                         price__gte=min_price.split(' ')[0],
-                                                         is_published=True,
-                                                         soft_deleted=False)
+            queryset = queryset.filter(Q(brand__slug__exact=brand) | Q(category__slug__exact=slug))
+        if max_price or min_price:
+            queryset = queryset.filter(price__lte=int(max_price.split(' ')[0]), price__gte=int(min_price.split(' ')[0]))
+        match sort_by:
+            case 'new':
+                return queryset.order_by('-created_at')
+            case 'cheep':
+                return queryset.order_by('price')
+            case 'expensive':
+                return queryset.order_by('-price')
+
+        return queryset
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ProductsListView, self).get_context_data(**kwargs)
+        sort_by = self.request.GET.get('sort-by')
+        context['brands'] = ProductBrand.objects.all()
+        if sort_by:
+            context['sort_by'] = sort_by
         return context
 
 
@@ -41,3 +49,5 @@ class CategoriesComponent(TemplateView):
         context = super(CategoriesComponent, self).get_context_data(**kwargs)
         context['categories'] = ProductCategory.objects.all()
         return context
+
+

@@ -18,6 +18,7 @@ class ProductsListApi(ListAPIView):
             products = Product.objects.filter(Q(brand__slug__exact=brand) |
                                               Q(category__slug__exact=slug),
                                               is_published=True, soft_deleted=False)
+        '''other filters ...'''
         serializer = ProductSerializer(products, many=True)
         if serializer.data:
             return Response({'products': serializer.data}, status.HTTP_200_OK)

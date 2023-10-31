@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from django.utils import translation
+from django.views import View
+
+from store import settings
 
 
 # Create your views here.
@@ -9,3 +13,12 @@ def home(request):
 
 def about_us(request):
     return render(request, './about-us/about-us.html', {})
+
+
+class HeaderComponent(View):
+
+    def get(self, request, **kwargs):
+        """change language by user"""
+        translation.activate(request.GET.get('lang'))
+        request.LANGUAGE_CODE = translation.get_language()
+        return render(request, '_shared/header.html', {})

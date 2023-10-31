@@ -1,3 +1,4 @@
+{% load render_partial %}
 {% load static %}
 <!doctype html>
 <html class="no-js" lang="en">
@@ -7,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
-    <meta name="robots" content="noindex, follow" />
+    <meta name="robots" content="noindex, follow"/>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
@@ -21,12 +22,14 @@
 </head>
 
 <body>
-    {% include '_shared/header.html'%}
-    {% block content %}{% endblock %}
-    {% include '_shared/footer.html'%}
+{#{% include '_shared/header.html' %}#}
+{% render_partial 'home_module.views.HeaderComponent' %}
+
+{% block content %}{% endblock %}
+{% include '_shared/footer.html' %}
 </body>
-    {% include '_shared/footer_refrences.html' %}
-    {% block footer_references %} {% endblock %}
+{% include '_shared/footer_refrences.html' %}
+{% block footer_references %} {% endblock %}
 
 
 </html>
