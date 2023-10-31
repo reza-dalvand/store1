@@ -885,9 +885,9 @@ $('[data-countdown]').each(function() {
 -------------------------------*/  
 $( "#price-slider" ).slider({
    range: true,
-   min: 0,
-   max: 120,
-   values: [ 20, 115 ],
+   min: 50000,
+   max: 980000,
+   values: [ 300000, 760000 ],
    slide: function( event, ui ) {
         $( "#min-price" ).val( ui.values[ 0 ] + ' تومان  '  );
         $( "#max-price" ).val( ui.values[ 1 ] + ' تومان '  );
