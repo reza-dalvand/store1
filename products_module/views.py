@@ -1,9 +1,7 @@
 from django.db.models import Q
-from django.views import View
 from django.views.generic import ListView, TemplateView
 from rest_framework.permissions import AllowAny
 from products_module.models import Product, ProductCategory, ProductBrand
-from store import settings
 
 
 class ProductsListView(ListView):
@@ -18,7 +16,13 @@ class ProductsListView(ListView):
         min_price = self.request.GET.get('min-price')
         max_price = self.request.GET.get('max-price')
         sort_by = self.request.GET.get('sort-by')
+        search = self.request.GET.get('search')
         queryset = Product.objects.filter(is_published=True, soft_deleted=False)
+
+        if search:
+            queryset = queryset.filter(Q(category__name__icontains=search) |
+                                       Q(brand__name__icontains=search) |
+                                       Q(name__icontains=search))
 
         if slug or brand:
             queryset = queryset.filter(Q(brand__slug__exact=brand) | Q(category__slug__exact=slug))
