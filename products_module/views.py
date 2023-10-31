@@ -5,6 +5,7 @@ from rest_framework.permissions import AllowAny
 from products_module.models import Product, ProductCategory, ProductBrand
 from store import settings
 
+
 class ProductsListView(ListView):
     permission_classes = [AllowAny]
     context_object_name = 'products'
@@ -49,5 +50,3 @@ class CategoriesComponent(TemplateView):
         context = super(CategoriesComponent, self).get_context_data(**kwargs)
         context['categories'] = ProductCategory.objects.all()
         return context
-
-

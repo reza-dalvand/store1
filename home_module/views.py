@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.utils import translation
 from django.views import View
+from rest_framework.permissions import AllowAny
 
 from store import settings
 
@@ -17,8 +18,11 @@ def about_us(request):
 
 class HeaderComponent(View):
 
-    def get(self, request, **kwargs):
+    def get(self, request):
+        return render(request, '_shared/header.html', {})
+
+    def post(self, request, **kwargs):
         """change language by user"""
-        translation.activate(request.GET.get('lang'))
+        translation.activate(request.POST.get('lang'))
         request.LANGUAGE_CODE = translation.get_language()
         return render(request, '_shared/header.html', {})
