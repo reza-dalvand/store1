@@ -8,7 +8,7 @@
                     <li class="has-sub"><a href="#">{{ category.name }}</a>
                     {% for item in category.productcategory_set.all %}
                         <ul>
-                            <li><a href="{% url 'products:products_list' %}?&slug={{ item.slug }}">{{ item.name }}</a>
+                            <li><a href="{% url 'products:products_list' %}?&category={{ item.slug }}">{{ item.name }}</a>
                             </li>
                         </ul>
                     {% endfor %}

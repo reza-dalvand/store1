@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'products_module',  # NEW
     'django.contrib.humanize',  # NEW
     'django_render_partial',  # NEW
+    'sorl.thumbnail',  # NEW
 
 ]
 

@@ -1,7 +1,8 @@
 from django.db.models import Q
-from django.views.generic import ListView, TemplateView
+from django.shortcuts import get_object_or_404
+from django.views.generic import ListView, TemplateView, DetailView
 from rest_framework.permissions import AllowAny
-from products_module.models import Product, ProductCategory, ProductBrand
+from products_module.models import Product, ProductCategory, ProductBrand, ProductGallery
 
 
 class ProductsListView(ListView):
@@ -44,6 +45,20 @@ class ProductsListView(ListView):
         context['brands'] = ProductBrand.objects.all()
         if sort_by:
             context['sort_by'] = sort_by
+        return context
+
+
+class ProductsDetailView(DetailView):
+    permission_classes = [AllowAny]
+    model = Product
+    context_object_name = 'product'
+    template_name = 'products/product_detail.html'
+    paginate_by = 1
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductsDetailView, self).get_context_data(**kwargs)
+        category = ProductCategory.objects.filter(name=self.object.category.name).first()
+        context['related_products'] = category.products_category.exclude(name=self.object.name)
         return context
 
 

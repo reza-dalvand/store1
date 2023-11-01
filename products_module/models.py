@@ -1,3 +1,5 @@
+from django.urls import reverse
+
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
@@ -33,10 +35,9 @@ class ProductCategory(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(ProductCategory, null=True, blank=True, related_name='category',
+    category = models.ForeignKey(ProductCategory, null=True, blank=True, related_name='products_category',
                                  on_delete=models.CASCADE)
-    brand = models.ForeignKey(ProductBrand, null=True, blank=True, related_name='brand',
-                              on_delete=models.CASCADE)
+    brand = models.ForeignKey(ProductBrand, null=True, blank=True, related_name='products_brand', on_delete=models.CASCADE)
     name = models.CharField(_('name'), max_length=255)
     slug = models.SlugField(_('slug'), max_length=255)
     image = models.ImageField(_('image'), upload_to='products')
@@ -50,3 +51,15 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('products:products_detail', args=[self.id])
+
+
+class ProductGallery(models.Model):
+    product = models.ForeignKey(Product, null=True, blank=True, related_name='product_gallery',
+                                on_delete=models.CASCADE)
+    image = models.ImageField(_('image'), upload_to='products', null=True, blank=True)
+
+    def __str__(self):
+        return self.product.name
