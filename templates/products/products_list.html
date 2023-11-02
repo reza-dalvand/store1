@@ -16,7 +16,8 @@
                         <div class="shop-box-area">
 
                             <!--sidebar-categores-box start  -->
-                            {% render_partial 'products_module.views.CategoriesComponent' %}
+                            {% include 'components/products_list/categories_component.html' with categories=categories %}
+                            {#                            {% render_partial 'products_module.views.CategoriesComponent' %}#}
                             <!--sidebar-categores-box end  -->
 
                             <!-- shop-sidebar start -->

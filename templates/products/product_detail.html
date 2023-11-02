@@ -15,7 +15,7 @@
                 <div class="col-lg-5 col-md-6">
                     <!-- Product Details Left -->
                     <div class="product-large-slider">
-                        {% for item in product.product_gallery.all %}
+                        {% for item in products_galleries %}
                             <div class="pro-large-img img-zoom">
                                 {% thumbnail item.image "600x600" crop="center" quality=70 as im %}
                                     <img src="{{ im.url }}" alt="{{ item.product }}"/>
@@ -195,13 +195,14 @@
                 </div>
                 <div class="row row-8 product-row-6-active">
                     {% if related_products %}
-                        {% for item in related_products %}
+                        {% for product in related_products %}
+                            {{ product }}
                             <div class="product-col">
                                 <!-- Single Product Start -->
                                 <div class="single-product-wrap mt-10">
                                     <div class="product-image">
-                                        <a href="{{ item.get_absolute_url }}">
-                                            {% thumbnail item.image "330x330" crop="center" quality=70 as im %}
+                                        <a href="{{ product.get_absolute_url }}">
+                                            {% thumbnail product.image "330x330" crop="center" quality=70 as im %}
                                                 <img src="{{ im.url }}" alt=""></a>
                                             {% endthumbnail %}
                                         <span class="onsale">فروش ویژه</span>
@@ -211,10 +212,10 @@
                                     </div>
                                     <div class="product-content">
                                         <div class="price-box">
-                                            <span class="new-price">{{ item.price|intcomma:False }} تومان</span>
+                                            <span class="new-price">{{ product.price|intcomma:False }} تومان</span>
                                         </div>
                                         <h6 class="product-name"><a
-                                                href="{{ item.get_absolute_url }}">{{ item.name }}</a></h6>
+                                                href="{{ item.get_absolute_url }}">{{ product.name }}</a></h6>
 
                                         <div class="product-button-action">
                                             <a href="#" class="add-to-cart">افزودن به سبد</a>

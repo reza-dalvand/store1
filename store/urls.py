@@ -38,6 +38,7 @@ urlpatterns += [path('api-auth/', include('rest_framework.urls', namespace='rest
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += path("__debug__/", include("debug_toolbar.urls")),
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
@@ -47,5 +48,6 @@ urlpatterns += i18n_patterns(
     path('products/', include('products_module.urls', namespace='products')),
     path('contact-us/', ContactUsView.as_view(), name='contact-us'),
     path('about-us/', about_us, name='about-us'),
+
     prefix_default_language=None
 )

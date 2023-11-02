@@ -28,6 +28,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Application definition
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -51,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',  # NEW
     'django_render_partial',  # NEW
     'sorl.thumbnail',  # NEW
+    'debug_toolbar',  # NEW
 
 ]
 
@@ -58,6 +64,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',  # new
+    "debug_toolbar.middleware.DebugToolbarMiddleware",  # new
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

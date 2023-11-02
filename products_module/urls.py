@@ -7,6 +7,8 @@ from .views import ProductsListView, ProductsDetailView
 app_name = 'products'
 
 router = DefaultRouter()
-router.register('api', ProductsListApi, basename='products_api')
+router.register('api/product-list', ProductsListApi, basename='products_api')
 
-urlpatterns = [path('', ProductsListView.as_view(), name='products_list')] + router.urls
+urlpatterns = [path('', ProductsListView.as_view(), name='products_list'),
+               path('<pk>/', ProductsDetailView.as_view(), name='products_detail')] + router.urls
+

@@ -3,7 +3,7 @@ from rest_framework import status, viewsets
 from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
-from products_module.models import Product
+from products_module.models import Product, ProductCategory
 from products_module.serializers import ProductSerializer
 
 
@@ -23,7 +23,7 @@ class ProductsListApi(viewsets.ViewSet):
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        queryset = Product.objects.all()
+        queryset = Product.objects.filter(is_published=True, soft_deleted=False)
         user = get_object_or_404(queryset, pk=pk)
         serializer = ProductSerializer(user)
         return Response(serializer.data)

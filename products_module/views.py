@@ -1,5 +1,4 @@
 from django.db.models import Q
-from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, TemplateView, DetailView
 from rest_framework.permissions import AllowAny
 from products_module.models import Product, ProductCategory, ProductBrand, ProductGallery
@@ -11,6 +10,8 @@ class ProductsListView(ListView):
     template_name = 'products/products_list.html'
     paginate_by = 1
 
+    # model = Product
+
     def get_queryset(self):
         slug = self.request.GET.get('slug')
         brand = self.request.GET.get('brand')
@@ -18,7 +19,7 @@ class ProductsListView(ListView):
         max_price = self.request.GET.get('max-price')
         sort_by = self.request.GET.get('sort-by')
         search = self.request.GET.get('search')
-        queryset = Product.objects.filter(is_published=True, soft_deleted=False)
+        queryset = Product.objects.select_related('category', 'brand').filter(is_published=True, soft_deleted=False)
 
         if search:
             queryset = queryset.filter(Q(category__name__icontains=search) |
@@ -43,6 +44,7 @@ class ProductsListView(ListView):
         context = super(ProductsListView, self).get_context_data(**kwargs)
         sort_by = self.request.GET.get('sort-by')
         context['brands'] = ProductBrand.objects.all()
+        context['categories'] = ProductCategory.objects.select_related('parent').all()
         if sort_by:
             context['sort_by'] = sort_by
         return context
@@ -57,15 +59,8 @@ class ProductsDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProductsDetailView, self).get_context_data(**kwargs)
-        category = ProductCategory.objects.filter(name=self.object.category.name).first()
-        context['related_products'] = category.products_category.exclude(name=self.object.name)
-        return context
-
-
-class CategoriesComponent(TemplateView):
-    template_name = 'components/products_list/categories_component.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(CategoriesComponent, self).get_context_data(**kwargs)
-        context['categories'] = ProductCategory.objects.all()
+        category = self.object.category
+        context['related_products'] = category.products_category.exclude(id=self.kwargs.get('pk'))
+        context['products_galleries'] = ProductGallery.objects.select_related('product').filter(
+            product_id=self.object.id)
         return context
