@@ -3,15 +3,15 @@ from rest_framework import status, viewsets
 from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
-from products_module.models import Product, ProductCategory
-from products_module.serializers import ProductSerializer
+from products_module.models import Product, ProductComment
+from products_module.serializers import ProductSerializer, CommentSerializer
 
 
 class ProductsListApi(viewsets.ViewSet):
     permission_classes = [AllowAny]
 
     def list(self, request):
-        products = Product.objects.filter(is_published=True, soft_deleted=False)
+        products = Product.objects.select_related('category', 'brand').filter(is_published=True, soft_deleted=False)
         category = request.query_params.get('category')
         brand = request.query_params.get('brand')
         if category or brand:
@@ -23,16 +23,17 @@ class ProductsListApi(viewsets.ViewSet):
         return Response(serializer.data)
 
     def create(self, validated_data):
-        print('validated_data', validated_data.POST)
-        # songs_data = validated_date.pop("songs")
-        # artist = Artist.objects.create(**validated_data)
-        # for song_data in songs_data:
-        #     Song.objects.create(artist=artist, song= ** song_data)
-        # serializer = ProductSerializer(products, many=True)
-        return Response(status.HTTP_201_CREATED)
+        data = validated_data.POST.dict().copy()
+        product = Product.objects.get(id=int(data.pop('product_id')))
+        if not ProductComment.objects.filter(email=data['email']).exists():
+            comment = ProductComment.objects.create(product=product, **data)
+            comment.save()
+            serializer = CommentSerializer(comment)
+            return Response(serializer.data, status.HTTP_201_CREATED)
+        return Response('Forbidden', status.HTTP_403_FORBIDDEN)
 
     def retrieve(self, request, pk=None):
         queryset = Product.objects.filter(is_published=True, soft_deleted=False)
-        user = get_object_or_404(queryset, pk=pk)
-        serializer = ProductSerializer(user)
+        products = get_object_or_404(queryset, pk=pk)
+        serializer = ProductSerializer(products)
         return Response(serializer.data)
