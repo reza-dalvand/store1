@@ -22,6 +22,15 @@ class ProductsListApi(viewsets.ViewSet):
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
 
+    def create(self, validated_data):
+        print('validated_data', validated_data.POST)
+        # songs_data = validated_date.pop("songs")
+        # artist = Artist.objects.create(**validated_data)
+        # for song_data in songs_data:
+        #     Song.objects.create(artist=artist, song= ** song_data)
+        # serializer = ProductSerializer(products, many=True)
+        return Response(status.HTTP_201_CREATED)
+
     def retrieve(self, request, pk=None):
         queryset = Product.objects.filter(is_published=True, soft_deleted=False)
         user = get_object_or_404(queryset, pk=pk)

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'jalali_date',  # NEW
     'rosetta',  # NEW
     'rest_framework_swagger',  # NEW
     'drf_yasg',  # NEW

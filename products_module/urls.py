@@ -10,5 +10,5 @@ router = DefaultRouter()
 router.register('api/product-list', ProductsListApi, basename='products_api')
 
 urlpatterns = [path('', ProductsListView.as_view(), name='products_list'),
-               path('<pk>/', ProductsDetailView.as_view(), name='products_detail')] + router.urls
+               path('detail/<pk>/', ProductsDetailView.as_view(), name='product_detail')] + router.urls
 

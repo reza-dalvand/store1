@@ -34,7 +34,6 @@
                             {% if user.is_authenticated %}
                                 <li><a href="my-account.html">{% trans "profile" %}</a></li>
                                 <li><a href="cart.html">{% trans "buy" %}</a></li>
-                                <li><a href="wishlist.html">{% trans "favarites" %}</a></li>
                                 <li><a href="{% url 'accounts:logout' %}">{% trans "logout" %}</a></li>
                             {% else %}
                                 <li><a href={% url 'accounts:login' %}>{% trans "login" %}</a></li>
@@ -61,14 +60,13 @@
                 <div class="col-lg-5">
                     <div class="search-box-wrapper">
                         <div class="search-box-inner-wrap">
-                            <form class="search-box-inner">
+                            <form action="{% url 'products:products_list' %}" class="search-box-inner">
                                 <div class="search-field-wrap">
                                     <input name="search" type="text" class="search-field" placeholder="جستجو...">
                                     <div class="search-btn">
                                         <button><i class="icon-search"></i></button>
                                     </div>
                                 </div>
-
                             </form>
                         </div>
                     </div>
@@ -111,7 +109,7 @@
                             <ul>
                                 <li class="active"><a href={% url "home:home" %}>{% trans 'home' %} </a></li>
                                 <li><a href="{% url 'products:products_list' %}">{% trans 'shop' %} </a></li>
-                                <li><a href="#">{% trans 'weblog' %} </a></li>
+                                <li><a href="#">{% trans 'cart' %} </a></li>
                                 <li><a href="{% url 'about-us' %}">{% trans 'about us' %}</a></li>
                                 <li><a href={% url "contact-us" %}>{% trans 'contac us' %}</a></li>
                             </ul>
@@ -127,12 +125,6 @@
 
                 <div class="col-lg-3 col-md-6 col-7">
                     <div class="right-blok-box text-white d-flex">
-
-                        <div class="user-wrap">
-                            <a href="wishlist.html"><span class="cart-total">2</span> <i class="icon-heart"></i></a>
-                        </div>
-
-
                         <div class="shopping-cart-wrap">
                             <a href="#"> <span class="cart-total-amunt">20000 تومان</span><i
                                     class="icon-shopping-bag2 float-left"></i><span class="cart-total">2</span></a>
@@ -310,7 +302,6 @@
                         <ul class="offcanvas-account-container">
                             <li><a href="my-account.html">پروفایل</a></li>
                             <li><a href="cart.html">خرید</a></li>
-                            <li><a href="wishlist.html">علاقه مندی</a></li>
                             <li><a href="checkout.html">پرداخت</a></li>
                         </ul>
                     </div>

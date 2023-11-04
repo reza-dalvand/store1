@@ -1,4 +1,5 @@
 {% extends '_shared/_base_layout.html' %}
+{% load jalali_tags %}
 {% load humanize %}
 {% load thumbnail %}
 {% load render_partial %}
@@ -26,7 +27,7 @@
                         {% endfor %}
 
                     </div>
-                    <div class="product-nav ltr">
+                    <div class="product-nav ltr mt-2">
                         {% for item in product.product_gallery.all %}
                             <div class="pro-nav-thumb">
                                 {% thumbnail item.image "150x150" crop="center" quality=70 as im %}
@@ -66,12 +67,7 @@
                                     <button class="add-to-cart" type="submit"> افزودن به سبد</button>
                                 </form>
                             </div>
-                            <ul class="single-add-actions">
-                                <li class="add-to-wishlist">
-                                    <a href="wishlist.html" class="add_to_wishlist"><i class="icon-heart"></i> افزودن به
-                                        علاقه مندیها</a>
-                                </li>
-                            </ul>
+                            <ul class="single-add-actions"></ul>
                             <ul class="stock-cont">
                                 <li class="product-stock-status">دسته&zwnj;بندی : <a
                                         href="#">{{ product.category.name }}</a></li>
@@ -129,20 +125,19 @@
                             <div class="product_tab_content tab-pane" id="reviews" role="tabpanel">
                                 <div class="review_address_inner mt-30">
                                     <!-- Start Single Review -->
-                                    <div class="pro_review">
-                                        <div class="review_thumb">
-                                            <img alt="review images" src="images/other/reviewer-60x60.jpg">
-                                        </div>
-                                        <div class="review_details">
-                                            <div class="review_info mb-10">
-                                                <h5>نیلوفر- <span>27 اردیبهشت 1398</span></h5>
+                                    {% for comment in comments %}
+                                        <div class="pro_review  mb-3">
+                                            <div class="review_details  w-100">
+                                                <div class="review_info mb-10">
+                                                    <h5>{{ comment.full_name }} -
+                                                        <span>{{ comment.created_at|to_jalali:'%Y/%m/%d' }}</span>
+                                                    </h5>
 
+                                                </div>
+                                                <p>{{ comment.message }}</p>
                                             </div>
-                                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-                                                طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                                                سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز</p>
                                         </div>
-                                    </div>
+                                    {% endfor %}
                                     <!-- End Single Review -->
                                 </div>
                                 <!-- Start RAting Area -->
@@ -155,21 +150,24 @@
                                 <div class="comments-area comments-reply-area">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <form action="#" class="comment-form-area">
+                                            <form method="post">
+                                                {% csrf_token %}
                                                 <div class="row comment-input">
                                                     <div class="col-md-6 comment-form-author mt-15">
+                                                        <input type="hidden" name="id" value="{{ product.id }}">
                                                         <label>نام و نام خانوادگی <span
                                                                 class="required">*</span></label>
-                                                        <input type="text" required="required" name="Name">
+                                                        <input type="text" required="required" name="full-name">
                                                     </div>
                                                     <div class="col-md-6 comment-form-email mt-15">
                                                         <label>ایمیل <span class="required">*</span></label>
-                                                        <input type="text" required="required" name="email">
+                                                        <input type="email" required="required" name="email">
                                                     </div>
                                                 </div>
                                                 <div class="comment-form-comment mt-15">
                                                     <label>متن پیام</label>
-                                                    <textarea class="comment-notes" required="required"></textarea>
+                                                    <textarea name="message" class="comment-notes"
+                                                              required="required"></textarea>
                                                 </div>
                                                 <div class="comment-form-submit mt-15">
                                                     <input type="submit" value="ارسال پیام" class="comment-submit">
@@ -196,7 +194,6 @@
                 <div class="row row-8 product-row-6-active">
                     {% if related_products %}
                         {% for product in related_products %}
-                            {{ product }}
                             <div class="product-col">
                                 <!-- Single Product Start -->
                                 <div class="single-product-wrap mt-10">

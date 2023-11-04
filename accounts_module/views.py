@@ -21,7 +21,7 @@ class RegisterAPIView(generics.GenericAPIView):
     def get(self, request):
         if request.user.is_authenticated:
             return HttpResponseRedirect(reverse('home:home'))
-        return render(request, './accounts/signup.html', {})
+        return render(request, 'accounts/signup.html', {})
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -31,8 +31,7 @@ class RegisterAPIView(generics.GenericAPIView):
             for field_name, field_error in serializer.errors.items():
                 field_errors[field_name] = field_error[0]
             # return Response({'Register': 'Bad request'}, status.HTTP_400_BAD_REQUEST)
-            return render(request, './accounts/signup.html',
-                          {"field_errors": field_errors})
+            return render(request, 'accounts/signup.html', {"field_errors": field_errors})
 
         serializer.save()
         # return Response({'Register': 'successfully'}, status.HTTP_201_CREATED)
@@ -46,7 +45,7 @@ class LoginAPIView(APIView):
     def get(self, request):
         if request.user.is_authenticated:
             return HttpResponseRedirect(reverse('home:home'))
-        return render(request, './accounts/signin.html', {})
+        return render(request, 'accounts/signin.html', {})
 
     def post(self, request, *args, **kwargs):
         email = request.data.get("email")
@@ -58,9 +57,9 @@ class LoginAPIView(APIView):
                 # return Response({'login': 'ok'}, status.HTTP_200_OK)
                 return HttpResponseRedirect(reverse('home:home'))
             # return Response({'login': 'User Not Found'}, status.HTTP_404_NOT_FOUND)
-            return render(request, './accounts/signin.html', {'error': _('user not found')})
+            return render(request, 'accounts/signin.html', {'error': _('user not found')})
         # return Response({'login': 'Bad request'}, status.HTTP_400_BAD_REQUEST)
-        return render(request, './accounts/signin.html', {'error': _('fields not be empty')})
+        return render(request, 'accounts/signin.html', {'error': _('fields not be empty')})
 
 
 class LogoutAPIView(LoginRequiredMixin, APIView):

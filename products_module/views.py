@@ -1,7 +1,9 @@
 from django.db.models import Q
-from django.views.generic import ListView, TemplateView, DetailView
+from django.shortcuts import redirect, render
+from django.urls import reverse
+from django.views.generic import ListView, DetailView
 from rest_framework.permissions import AllowAny
-from products_module.models import Product, ProductCategory, ProductBrand, ProductGallery
+from products_module.models import Product, ProductCategory, ProductBrand, ProductGallery, ProductComment
 
 
 class ProductsListView(ListView):
@@ -10,21 +12,19 @@ class ProductsListView(ListView):
     template_name = 'products/products_list.html'
     paginate_by = 1
 
-    # model = Product
-
     def get_queryset(self):
         slug = self.request.GET.get('slug')
         brand = self.request.GET.get('brand')
         min_price = self.request.GET.get('min-price')
         max_price = self.request.GET.get('max-price')
         sort_by = self.request.GET.get('sort-by')
-        search = self.request.GET.get('search')
+        searching_value = self.request.GET.get('search')
         queryset = Product.objects.select_related('category', 'brand').filter(is_published=True, soft_deleted=False)
 
-        if search:
-            queryset = queryset.filter(Q(category__name__icontains=search) |
-                                       Q(brand__name__icontains=search) |
-                                       Q(name__icontains=search))
+        if searching_value:
+            queryset = queryset.filter(Q(category__name__icontains=searching_value) |
+                                       Q(brand__name__icontains=searching_value) |
+                                       Q(name__icontains=searching_value))
 
         if slug or brand:
             queryset = queryset.filter(Q(brand__slug__exact=brand) | Q(category__slug__exact=slug))
@@ -61,6 +61,18 @@ class ProductsDetailView(DetailView):
         context = super(ProductsDetailView, self).get_context_data(**kwargs)
         category = self.object.category
         context['related_products'] = category.products_category.exclude(id=self.kwargs.get('pk'))
+        context['comments'] = self.object.comments.all()
         context['products_galleries'] = ProductGallery.objects.select_related('product').filter(
             product_id=self.object.id)
         return context
+
+    def post(self, request, *args, **kwargs):
+        product_id = request.POST.get('id')
+        full_name = request.POST.get('full-name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        product = Product.objects.get(id=product_id)
+        if product_id and full_name and email and message:
+            ProductComment.objects.create(product=product, full_name=full_name, email=email, message=message)
+            return redirect(reverse('products:product_detail', args=[product_id]))
+        return render(request, 'products/product_detail.html', {"errors": 'please fill all fields'})
