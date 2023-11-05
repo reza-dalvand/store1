@@ -44,7 +44,8 @@ class ProductsListView(ListView):
         context = super(ProductsListView, self).get_context_data(**kwargs)
         sort_by = self.request.GET.get('sort-by')
         context['brands'] = ProductBrand.objects.all()
-        context['categories'] = ProductCategory.objects.select_related('parent').all()
+        context['categories'] = ProductCategory.objects.filter(parent__name=None)
+
         if sort_by:
             context['sort_by'] = sort_by
         return context
