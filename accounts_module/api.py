@@ -3,9 +3,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
 from accounts_module.models import CustomUser
-from accounts_module.serializers import RegisterUserSerializer, UserProfileSerializer
+from accounts_module.serializers import RegisterUserSerializer, UserProfileSerializer, ChangePasswordSerializer
 
 
 class RegisterAPIView(generics.GenericAPIView):
@@ -65,3 +64,8 @@ class UserProfileView(generics.UpdateAPIView):
             serializer.save()
             return Response(status.HTTP_200_OK)
         return Response(serializer.data, status.HTTP_400_BAD_REQUEST)
+
+
+class ChangePasswordView(generics.UpdateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = ChangePasswordSerializer

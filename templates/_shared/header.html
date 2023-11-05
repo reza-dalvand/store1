@@ -32,7 +32,7 @@
                     <div class="top-info-wrap text-left">
                         <ul class="my-account-container">
                             {% if user.is_authenticated %}
-                                <li><a href="my-account.html">{% trans "profile" %}</a></li>
+                                <li><a href="{% url 'accounts:user_profile' request.user.id %}">{% trans "profile" %}</a></li>
                                 <li><a href="cart.html">{% trans "buy" %}</a></li>
                                 <li><a href="{% url 'accounts:logout' %}">{% trans "logout" %}</a></li>
                             {% else %}

@@ -1,13 +1,17 @@
 import time
 
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import check_password
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.views.generic import UpdateView
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.urls import reverse
+
+from accounts_module.models import CustomUser
 from accounts_module.serializers import RegisterUserSerializer
 from django.utils.translation import gettext_lazy as _
 from rest_framework.permissions import AllowAny
@@ -68,3 +72,45 @@ class LogoutAPIView(LoginRequiredMixin, APIView):
     def get(self, request, *args, **kwargs):
         logout(request)
         return HttpResponseRedirect(reverse('accounts:login'))
+
+
+class UserProfileView(LoginRequiredMixin, UpdateView):
+    model = CustomUser
+    context_object_name = 'user'
+    fields = ["username", 'email', 'first_name', 'last_name', 'phone_number']
+    template_name = 'accounts/profile.html'
+
+    def post(self, request, *args, **kwargs):
+        user_id = kwargs['pk']
+        user = CustomUser.objects.filter(id=user_id).first()
+        if user and request.user.id == user.id:
+            user.first_name = request.POST.get('first-name')
+            user.last_name = request.POST.get('last-name')
+            user.email = request.POST.get('email')
+            user.username = request.POST.get('username')
+            user.phone_number = request.POST.get('phone-number')
+            user.save()
+            return redirect(reverse('accounts:user_profile', args=[user_id]))
+        return redirect(reverse('accounts:user_profile', args=[user_id]))
+
+
+class ChangePasswordView(LoginRequiredMixin, UpdateView):
+    model = CustomUser
+    context_object_name = 'user'
+    fields = ['password']
+    template_name = 'accounts/profile.html'
+
+    def post(self, request, *args, **kwargs):
+        user_id = kwargs['pk']
+        user = CustomUser.objects.filter(id=user_id).first()
+        old_password = request.POST.get('old')
+        new_password = request.POST.get('new')
+        confirm_password = request.POST.get('confirm')
+        if user and request.user.id == user.id:
+            print(user.check_password(old_password), 'Password changed')
+            if user.check_password(old_password):
+                if new_password == confirm_password:
+                    user.set_password(new_password)
+                    user.save()
+                    return logout(request)
+        return redirect(reverse('accounts:change_password', args=[user_id]))
