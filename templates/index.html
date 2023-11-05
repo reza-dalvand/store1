@@ -15,14 +15,19 @@
                                 </div>
                                 <div class="categories_menu_toggle">
                                     <ul>
-                                        <li class="menu_item_children categorie_list"><a href="#">غذای اقیانوس<i
-                                                class="fa fa-angle-left"></i></a>
-                                            <ul class="categories_mega_menu">
-                                                <li><a href="#">ماهی</a></li>
-                                                <li><a href="#"> میگو</a></li>
-                                                <li><a href="#">خرچنگ</a></li>
-                                            </ul>
-                                        </li>
+                                        {% for parent_category in categories %}
+                                            <li class="menu_item_children categorie_list">
+
+                                                <a href="#">{{ parent_category.name }}<i
+                                                        class="fa fa-angle-left"></i></a>
+
+                                                <ul class="categories_mega_menu">
+                                                    {% for category in parent_category.productcategory_set.all %}
+                                                        <li><a href="#">{{ category.name }}</a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                        {% endfor %}
                                         <li class="menu_item_children"><a href="#">کره و تخم مرغ <i
                                                 class="fa fa-angle-left"></i></a>
                                             <ul class="categories_mega_menu">
@@ -606,8 +611,9 @@
                                 <!-- Single Product Start -->
                                 <div class="single-product-wrap mt-30">
                                     <div class="product-image">
-                                        <a href="product-details.html"><img src="{% static "images/product/product-04.jpg" %}"
-                                                                            alt=""></a>
+                                        <a href="product-details.html"><img
+                                                src="{% static "images/product/product-04.jpg" %}"
+                                                alt=""></a>
                                         <span class="onsale">فروش ویژه!</span>
 
                                         <!-- countdown start -->
@@ -643,8 +649,9 @@
                                 <!-- Single Product Start -->
                                 <div class="single-product-wrap mt-30">
                                     <div class="product-image">
-                                        <a href="product-details.html"><img src="{% static "images/product/product-05.jpg"  %}"
-                                                                            alt=""></a>
+                                        <a href="product-details.html"><img
+                                                src="{% static "images/product/product-05.jpg" %}"
+                                                alt=""></a>
                                         <span class="onsale">فروش ویژه!</span>
 
                                         <!-- countdown start -->
@@ -680,8 +687,9 @@
                                 <!-- Single Product Start -->
                                 <div class="single-product-wrap mt-30">
                                     <div class="product-image">
-                                        <a href="product-details.html"><img src="{% static "images/product/product-06.jpg" %}"
-                                                                            alt=""></a>
+                                        <a href="product-details.html"><img
+                                                src="{% static "images/product/product-06.jpg" %}"
+                                                alt=""></a>
                                         <span class="onsale">فروش ویژه!</span>
 
                                     </div>
@@ -714,8 +722,9 @@
                                 <!-- Single Product Start -->
                                 <div class="single-product-wrap mt-30">
                                     <div class="product-image">
-                                        <a href="product-details.html"><img src="{% static "images/product/product-09.jpg" %}"
-                                                                            alt=""></a>
+                                        <a href="product-details.html"><img
+                                                src="{% static "images/product/product-09.jpg" %}"
+                                                alt=""></a>
                                         <span class="onsale">فروش ویژه!</span>
 
                                         <!-- countdown start -->
@@ -751,8 +760,9 @@
                                 <!-- Single Product Start -->
                                 <div class="single-product-wrap mt-30">
                                     <div class="product-image">
-                                        <a href="product-details.html"><img src="{% static "images/product/product-10.jpg" %}"
-                                                                            alt=""></a>
+                                        <a href="product-details.html"><img
+                                                src="{% static "images/product/product-10.jpg" %}"
+                                                alt=""></a>
                                         <span class="onsale">فروش ویژه!</span>
 
                                         <!-- countdown start -->
@@ -1529,8 +1539,9 @@
                             <!-- Single Product Start -->
                             <div class="single-product-wrap mt-10">
                                 <div class="product-image">
-                                    <a href="product-details.html"><img src="{% static "images/product/product-01.jpg" %}"
-                                                                        alt=""></a>
+                                    <a href="product-details.html"><img
+                                            src="{% static "images/product/product-01.jpg" %}"
+                                            alt=""></a>
                                     <span class="onsale">فروش ویژه!</span>
                                 </div>
                                 <div class="product-button">
@@ -1554,8 +1565,9 @@
                             <!-- Single Product Start -->
                             <div class="single-product-wrap mt-10">
                                 <div class="product-image">
-                                    <a href="product-details.html"><img src="{% static "images/product/product-02.jpg" %}"
-                                                                        alt=""></a>
+                                    <a href="product-details.html"><img
+                                            src="{% static "images/product/product-02.jpg" %}"
+                                            alt=""></a>
                                     <span class="onsale">فروش ویژه!</span>
                                 </div>
                                 <div class="product-button">
@@ -1579,8 +1591,9 @@
                             <!-- Single Product Start -->
                             <div class="single-product-wrap mt-10">
                                 <div class="product-image">
-                                    <a href="product-details.html"><img src="{% static "images/product/product-03.jpg" %}"
-                                                                        alt=""></a>
+                                    <a href="product-details.html"><img
+                                            src="{% static "images/product/product-03.jpg" %}"
+                                            alt=""></a>
                                     <span class="onsale">فروش ویژه!</span>
                                 </div>
                                 <div class="product-button">
@@ -1604,8 +1617,9 @@
                             <!-- Single Product Start -->
                             <div class="single-product-wrap mt-10">
                                 <div class="product-image">
-                                    <a href="product-details.html"><img src="{% static "images/product/product-04.jpg" %}"
-                                                                        alt=""></a>
+                                    <a href="product-details.html"><img
+                                            src="{% static "images/product/product-04.jpg" %}"
+                                            alt=""></a>
                                     <span class="onsale">فروش ویژه!</span>
                                 </div>
                                 <div class="product-button">
@@ -1629,8 +1643,9 @@
                             <!-- Single Product Start -->
                             <div class="single-product-wrap mt-10">
                                 <div class="product-image">
-                                    <a href="product-details.html"><img src="{% static "images/product/product-01.jpg" %}"
-                                                                        alt=""></a>
+                                    <a href="product-details.html"><img
+                                            src="{% static "images/product/product-01.jpg" %}"
+                                            alt=""></a>
                                     <span class="onsale">فروش ویژه!</span>
                                 </div>
                                 <div class="product-button">
@@ -1654,8 +1669,9 @@
                             <!-- Single Product Start -->
                             <div class="single-product-wrap mt-10">
                                 <div class="product-image">
-                                    <a href="product-details.html"><img src="{% static "images/product/product-02.jpg" %}"
-                                                                        alt=""></a>
+                                    <a href="product-details.html"><img
+                                            src="{% static "images/product/product-02.jpg" %}"
+                                            alt=""></a>
                                     <span class="onsale">فروش ویژه!</span>
                                 </div>
                                 <div class="product-button">
@@ -1679,8 +1695,9 @@
                             <!-- Single Product Start -->
                             <div class="single-product-wrap mt-10">
                                 <div class="product-image">
-                                    <a href="product-details.html"><img src="{% static "images/product/product-02.jpg" %}"
-                                                                        alt=""></a>
+                                    <a href="product-details.html"><img
+                                            src="{% static "images/product/product-02.jpg" %}"
+                                            alt=""></a>
                                     <span class="onsale">فروش ویژه!</span>
                                 </div>
                                 <div class="product-button">
