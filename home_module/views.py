@@ -19,10 +19,8 @@ def about_us(request):
 class HeaderComponent(View):
 
     def get(self, request):
-        return render(request, '_shared/header.html', {})
-
-    def post(self, request, **kwargs):
         """change language by user"""
-        translation.activate(request.POST.get('lang'))
+        translation.activate(request.GET.get('lang'))
         request.LANGUAGE_CODE = translation.get_language()
         return render(request, '_shared/header.html', {})
+
