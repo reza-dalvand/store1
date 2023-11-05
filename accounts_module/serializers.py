@@ -3,6 +3,39 @@ from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
 
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'email', 'first_name', 'last_name', 'phone_number']
+        extra_kwargs = {
+            'first_name': {'required': True},
+            'last_name': {'required': True},
+        }
+
+    # def validate_email(self, value):
+    #     user = self.context['request'].user
+    #     if CustomUser.objects.exclude(pk=user.pk).filter(email=value).exists():
+    #         raise serializers.ValidationError({"email": "This email is already in use."})
+    #     return value
+    #
+    # def validate_username(self, value):
+    #     user = self.context['request'].user
+    #     if CustomUser.objects.exclude(pk=user.pk).filter(username=value).exists():
+    #         raise serializers.ValidationError({"username": "This username is already in use."})
+    #     return value
+    #
+    # def update(self, instance, validated_data):
+    #     instance.username = validated_data['username']
+    #     instance.first_name = validated_data['first_name']
+    #     instance.last_name = validated_data['last_name']
+    #     instance.phone_number = validated_data['phone_number']
+    #     instance.email = validated_data['email']
+    #
+    #     instance.save()
+    #
+    #     return instance
+
+
 class RegisterUserSerializer(serializers.ModelSerializer):
     password2 = serializers.CharField(write_only=True)
 
