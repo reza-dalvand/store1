@@ -3,6 +3,7 @@ from django.utils import translation
 from django.views import View
 from home_module.models import MainSlider
 from products_module.models import ProductCategory, Product
+from site_settings.models import SiteSetting
 
 
 # Create your views here.
@@ -11,7 +12,7 @@ class Home(View):
 
     def get(self, request):
         latest_products = Product.objects.filter(is_published=True, soft_deleted=False).order_by('-created_at')
-        categories = ProductCategory.objects.filter(parent__name=None)
+        categories = ProductCategory.objects.select_related('parent').filter(parent__name=None)
         slides = MainSlider.objects.all()
         context = {
             'latest_products': latest_products,
@@ -33,3 +34,13 @@ class HeaderComponent(View):
         translation.activate(request.GET.get('lang'))
         request.LANGUAGE_CODE = translation.get_language()
         return render(request, '_shared/header.html', {})
+
+
+class FooterComponent(View):
+
+    def get(self, request):
+        site_settings = SiteSetting.objects.filter(is_active=True).first()
+        context = {
+            'site_settings': site_settings
+        }
+        return render(request, '_shared/footer.html', context)

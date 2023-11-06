@@ -1,128 +1,106 @@
 {% load static %}
 <footer>
-            <div class="footer-top section-pb section-pt-60">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="widget-footer mt-40">
-                                <h6 class="title-widget">اطلاعات تماس</h6>
-                                <div class="contact-call-wrap">
-                                    <img src="{% static "images/icon/img-headphone.png"%}" alt="">
-                                    <div class="footer-call">
-                                        <p>تلفن تماس :</p>
-                                        <h6>(+98) 02123 456 789</h6>
-                                    </div>
-                                </div>
-                                <div class="footer-addres">
-                                    <p>تهران , تجریش</p>
-                                    <p>info@gmail.com</p>
-                                </div>
+    <div class="footer-top section-pb section-pt-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="widget-footer mt-40">
+                        <h6 class="title-widget">اطلاعات تماس</h6>
+                        <div class="contact-call-wrap">
+                            <img src="{% static "images/icon/img-headphone.png" %}" alt="">
+                            <div class="footer-call">
+                                <p>تلفن تماس :</p>
+                                <h6>{{ site_settings.mobile }}</h6>
+                            </div>
+                        </div>
+                        <div class="footer-addres">
+                            <p>{{ site_settings.address }}</p>
+                            <p>{{ site_settings.email }}</p>
+                        </div>
 
-                                <ul class="social-icons">
-                                    <li>
-                                        <a class="facebook social-icon" href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li>
-                                        <a class="twitter social-icon" href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a class="instagram social-icon" href="#" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a class="linkedin social-icon" href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                    </li>
-                                    <li>
-                                        <a class="rss social-icon" href="#" title="Rss" target="_blank"><i class="fa fa-rss"></i></a>
-                                    </li>
-                                </ul>
+                        <ul class="social-icons">
+                            <li>
+                                <a class="facebook social-icon" href="#" title="Facebook" target="_blank"><i
+                                        class="fa fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a class="twitter social-icon" href="#" title="Twitter" target="_blank"><i
+                                        class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a class="instagram social-icon" href="#" title="Instagram" target="_blank"><i
+                                        class="fa fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a class="linkedin social-icon" href="#" title="Linkedin" target="_blank"><i
+                                        class="fa fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a class="rss social-icon" href="#" title="Rss" target="_blank"><i
+                                        class="fa fa-rss"></i></a>
+                            </li>
+                        </ul>
 
-                            </div>
+                    </div>
 
-                        </div>
-                        <div class="col-lg-2 col-md-6 col-sm-6">
-                            <div class="widget-footer mt-40">
-                                <h6 class="title-widget">اوریجن</h6>
-                                <ul class="footer-list">
-                                    <li><a href="#">درباره ما</a></li>
-                                    <li><a href="#">تماس با ما</a></li>
-                                    <li><a href="#">چرا اوریجن</a></li>
-                                    <li><a href="#">وبلاگ</a></li>
-                                    <li><a href="#">راهنمای خرید</a></li>
-                                    <li><a href="#">  مجله اوریجن</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6 col-sm-6">
-                            <div class="widget-footer mt-40">
-                                <h6 class="title-widget">خدمات مشتریان</h6>
-                                <ul class="footer-list">
-                                    <li><a href="#">پاسخ به پرسش‌های متداول</a></li>
-                                    <li><a href="#">رویه‌های بازگرداندن کالا</a></li>
-                                    <li><a href="#">شرایط استفاده</a></li>
-                                    <li><a href="#">حریم خصوصی</a></li>
-                                    <li><a href="#">گزارش باگ</a></li>
-                                    <li><a href="#">رویه ارسال سفارش</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="widget-footer mt-40">
-                                <h6 class="title-widget">دریافت اپلیکیشن اوریجن</h6>
-                                <p>نزدیک‌ترین شعبه‌ی اوریجن در جیب شماست</p>
-                                <ul class="footer-list">
-                                    <li><img src="{% static "images/brand/img-googleplay.jpg"%}" alt=""></li>
-                                    <li><img src="{% static "images/brand/img-appstore.jpg"%}" alt=""></li>
-                                </ul>
-                            </div>
-                        </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="widget-footer mt-40">
+                        <h6 class="title-widget">اوریجن</h6>
+                        <ul class="footer-list">
+                            <li><a href="#">درباره ما</a></li>
+                            <li><a href="#">تماس با ما</a></li>
+                            <li><a href="#">چرا اوریجن</a></li>
+                            <li><a href="#">وبلاگ</a></li>
+                            <li><a href="#">راهنمای خرید</a></li>
+                            <li><a href="#"> مجله اوریجن</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="widget-footer mt-40">
+                        <h6 class="title-widget">خدمات مشتریان</h6>
+                        <ul class="footer-list">
+                            <li><a href="#">پاسخ به پرسش‌های متداول</a></li>
+                            <li><a href="#">رویه‌های بازگرداندن کالا</a></li>
+                            <li><a href="#">شرایط استفاده</a></li>
+                            <li><a href="#">حریم خصوصی</a></li>
+                            <li><a href="#">گزارش باگ</a></li>
+                            <li><a href="#">رویه ارسال سفارش</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="widget-footer mt-40">
+                        <h6 class="title-widget">دریافت اپلیکیشن اوریجن</h6>
+                        <p>نزدیک‌ترین شعبه‌ی اوریجن در جیب شماست</p>
+                        <ul class="footer-list">
+                            <li><img src="{% static "images/brand/img-googleplay.jpg" %}" alt=""></li>
+                            <li><img src="{% static "images/brand/img-appstore.jpg" %}" alt=""></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="newletter-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="newletter-wrap">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-3 col-md-12">
-                                        <div class="newsletter-title mb-30">
-                                            <h3>به ما ملحق شوید<br><span>خبرنامه</span></h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-5">
-                                        <div class="newsletter-dec mb-30">
-                                            <p>از تخفیف‌ها و جدیدترین‌های اوریجن باخبر شوید:</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 col-md-7">
-                                        <div class="newsletter-footer mb-30">
-                                            <input type="text" placeholder="ایمیل...">
-                                            <div class="subscribe-button">
-                                                <button class="subscribe-btn">اشتراک</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="copy-left-text">
-                                <p class="copyright-text">&copy;  1399  <strong> اوریجین </strong> ساخته شده ❤️ توسط  <a href="https://hasthemes.com/" target="_blank">Themefit</a> </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="copy-right-image">
-                                <img src="{% static "images/icon/img-payment.png" %}" alt="">
+        </div>
+    </div>
 
-                            </div>
-                        </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="copy-left-text">
+                        <p class="copyright-text">&copy; 1399 <strong> {{ site_settings.title }} </strong> ساخته شده ❤️
+                            توسط <a
+                                    href="https://hasthemes.com/" target="_blank">{{ site_settings.short_description }}</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="copy-right-image">
+                        <img src="{% static "images/icon/img-payment.png" %}" alt="">
+
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </div>
+</footer>

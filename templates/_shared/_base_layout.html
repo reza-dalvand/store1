@@ -26,9 +26,10 @@
 {% render_partial 'home_module.views.HeaderComponent' %}
 
 {% block content %}{% endblock %}
-{% include '_shared/footer.html' %}
+{% render_partial 'home_module.views.FooterComponent' %}
 </body>
-{% include '_shared/footer_refrences.html' %}
+
+{% include '_shared/footer_references.html' %}
 {% block footer_references %} {% endblock %}
 
 
