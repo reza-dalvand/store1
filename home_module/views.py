@@ -44,3 +44,7 @@ class FooterComponent(View):
             'site_settings': site_settings
         }
         return render(request, '_shared/footer.html', context)
+
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)

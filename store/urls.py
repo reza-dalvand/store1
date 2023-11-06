@@ -25,14 +25,15 @@ from contactUs_module.views import ContactUsView
 from store import settings
 from home_module.views import about_us
 
-urlpatterns = []
+
+
 schema_view = get_schema_view(
     openapi.Info(title="Document of Apis", default_version='v1'),
     public=True,
     permission_classes=[permissions.AllowAny],
 )
 
-urlpatterns += [path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+urlpatterns = [path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
                 path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger')]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
@@ -51,3 +52,6 @@ urlpatterns += i18n_patterns(
 
     prefix_default_language=None
 )
+
+
+handler404 = 'home_module.views.custom_404'
