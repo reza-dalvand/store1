@@ -1,9 +1,7 @@
 from django.urls import reverse
-
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
-
 from accounts_module.models import CustomUser
 
 
@@ -62,7 +60,7 @@ class Product(models.Model):
 class ProductGallery(models.Model):
     product = models.ForeignKey(Product, null=True, blank=True, related_name='product_gallery',
                                 on_delete=models.CASCADE)
-    image = models.ImageField(_('image'), upload_to='products', null=True, blank=True)
+    image = models.ImageField(_('image'), upload_to='galleries', null=True, blank=True)
 
     def __str__(self):
         return self.product.name
@@ -77,3 +75,6 @@ class ProductComment(models.Model):
 
     def __str__(self):
         return self.full_name
+
+
+
