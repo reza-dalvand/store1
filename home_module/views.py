@@ -12,7 +12,7 @@ class Home(View):
 
     def get(self, request):
         latest_products = Product.objects.filter(is_published=True, soft_deleted=False).order_by('-created_at')
-        categories = ProductCategory.objects.select_related('parent').filter(parent__name=None)
+        categories = ProductCategory.objects.prefetch_related('productcategory_set').filter(parent__name=None)
         slides = MainSlider.objects.all()
         context = {
             'latest_products': latest_products,
