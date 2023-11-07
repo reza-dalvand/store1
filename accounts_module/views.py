@@ -1,10 +1,12 @@
 import time
+import uuid
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.views import View
 from django.views.generic import UpdateView
 from rest_framework import status, generics
 from rest_framework.response import Response
@@ -15,6 +17,8 @@ from accounts_module.models import CustomUser
 from accounts_module.serializers import RegisterUserSerializer
 from django.utils.translation import gettext_lazy as _
 from rest_framework.permissions import AllowAny
+
+from utils.mail import send_mail_to_users
 
 
 class RegisterAPIView(generics.GenericAPIView):
@@ -107,10 +111,58 @@ class ChangePasswordView(LoginRequiredMixin, UpdateView):
         new_password = request.POST.get('new')
         confirm_password = request.POST.get('confirm')
         if user and request.user.id == user.id:
-            print(user.check_password(old_password), 'Password changed')
             if user.check_password(old_password):
                 if new_password == confirm_password:
                     user.set_password(new_password)
                     user.save()
                     return logout(request)
         return redirect(reverse('accounts:change_password', args=[user_id]))
+
+
+class ForgetPasswordView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'accounts/change_password.html', {})
+
+    def post(self, request, *args, **kwargs):
+        email = request.POST.get('email')
+        user = CustomUser.objects.get(email=email)
+        url = f'http://127.0.0.1:8000/auth/reset-password/?token={user.token}'
+        if user:
+            # send_mail_to_users(_("change password"), f'click on this link {url}', [user.email])
+            return redirect(reverse('accounts:forget_password_done'))
+        else:
+            return render(request, 'accounts/change_password.html', {'error': "user with this email not found"})
+
+
+class ForgetPasswordDoneView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'accounts/change_password_done.html', {})
+
+
+class ResetPasswordView(View):
+    def get(self, request, *args, **kwargs):
+        token = kwargs.get('token')
+        user = CustomUser.objects.filter(token=token).first()
+        if user:
+            context = {
+                'token': token,
+            }
+            return render(request, 'accounts/reset_password.html', context)
+        return redirect(reverse('accounts:login'))
+
+    def post(self, request, *args, **kwargs):
+        token = kwargs.get('token')
+        new_password = request.POST.get('new')
+        confirm_password = request.POST.get('confirm')
+        user = CustomUser.objects.filter(token__iexact=token).first()
+        if user and new_password == confirm_password:
+            user.set_password(new_password)
+            user.token = uuid.uuid4()
+            user.save()
+            return redirect(reverse('accounts:reset_password_done'))
+        return redirect(reverse('accounts:login'))
+
+
+class ResetPasswordDoneView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'accounts/reset_password_done.html', {})
