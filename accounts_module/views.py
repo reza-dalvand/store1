@@ -126,7 +126,7 @@ class ForgetPasswordView(View):
     def post(self, request, *args, **kwargs):
         email = request.POST.get('email')
         user = CustomUser.objects.get(email=email)
-        url = f'http://127.0.0.1:8000/auth/reset-password/?token={user.token}'
+        url = f'http://127.0.0.1:8000/auth/reset-password/{user.token}'
         if user:
             # send_mail_to_users(_("change password"), f'click on this link {url}', [user.email])
             return redirect(reverse('accounts:forget_password_done'))

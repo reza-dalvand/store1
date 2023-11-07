@@ -75,3 +75,12 @@ class RegisterUserSerializer(serializers.ModelSerializer):
         self.prepare_user_account()
         self.user_account.save()
         return self.user_account
+
+
+class ChangeForgetPasswordSerializer(serializers.Serializer):
+    new_password = serializers.CharField(required=True)
+    confirm_password = serializers.CharField(required=True)
+
+
+class ResetPasswordEmailSerializer(serializers.Serializer):
+    email = serializers.EmailField(required=True)

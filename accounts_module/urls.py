@@ -5,6 +5,9 @@ from accounts_module import api
 app_name = 'accounts'
 
 urlpatterns = [
+    path('api/reset-password/', api.ResetPasswordView.as_view(), name='reset_password'),
+    path('api/change-password/<token>/', api.ChangeForgetPasswordView.as_view(), name='change_password'),
+
     path('forget-password/', views.ForgetPasswordView.as_view(), name='forget_password'),
     path('forget-password/done/', views.ForgetPasswordDoneView.as_view(), name='forget_password_done'),
     path('reset-password/<token>/', views.ResetPasswordView.as_view(), name='reset_password'),
