@@ -3,5 +3,5 @@ from .models import SiteSetting
 
 
 @register(SiteSetting)
-class CourseTranslationOptions(TranslationOptions):
+class SiteSettingTranslationOptions(TranslationOptions):
     fields = ('title', 'short_description', 'description', 'address')

@@ -1,8 +1,11 @@
 from django.db.models import Q
 from django.shortcuts import redirect, render
-from django.urls import reverse
-from django.views.generic import ListView, DetailView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView
 from rest_framework.permissions import AllowAny
+from rest_framework.views import APIView
+
+from orders_module.models import Order, OrderDetail
 from products_module.models import Product, ProductCategory, ProductBrand, ProductGallery, ProductComment
 
 
@@ -44,7 +47,8 @@ class ProductsListView(ListView):
         context = super(ProductsListView, self).get_context_data(**kwargs)
         sort_by = self.request.GET.get('sort-by')
         context['brands'] = ProductBrand.objects.all()
-        context['categories'] = ProductCategory.objects.prefetch_related('productcategory_set').filter(parent__name=None)
+        context['categories'] = ProductCategory.objects.prefetch_related('productcategory_set').filter(
+            parent__name=None)
 
         if sort_by:
             context['sort_by'] = sort_by
@@ -67,6 +71,24 @@ class ProductsDetailView(DetailView):
             product_id=self.object.id)
         return context
 
+    def post(self, request, *args, **kwargs):
+        product_id = request.POST.get('product-id')
+        count = int(request.POST.get('count'))
+        if count < 1:
+            return redirect(reverse('products:product_detail', args=[product_id]))
+        if request.user.is_authenticated:
+            basket, created = Order.objects.get_or_create(user_id=request.user.id, is_open=True)
+            product = OrderDetail.objects.filter(order_id=basket.id, product_id=product_id).first()
+            if product:
+                product.count += count
+                product.save()
+                return redirect(reverse('products:product_detail', args=[product_id]))
+            OrderDetail.objects.create(order_id=basket.id, product_id=product_id, count=count)
+            return redirect(reverse('products:product_detail', args=[product_id]))
+        return redirect(reverse('accounts:login'))
+
+
+class CreateCommentView(APIView):
     def post(self, request, *args, **kwargs):
         product_id = request.POST.get('id')
         full_name = request.POST.get('full-name')

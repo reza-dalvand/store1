@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'rosetta',  # NEW
     'rest_framework_swagger',  # NEW
     'drf_yasg',  # NEW
-    'course_module',  # NEW
+    'orders_module',  # NEW
     'home_module',  # NEW
     'modeltranslation',  # NEW
     'accounts_module',  # NEW

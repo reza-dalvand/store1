@@ -1,0 +1,95 @@
+{% extends '_shared/_base_layout.html' %}
+{% load humanize %}
+{% load thumbnail %}
+{% load render_partial %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans 'orders' %}{% endblock %}
+{% include '_shared/breadcrumb.html' with page_name='سبد خرید' %}
+
+{% block content %}
+    <!-- main-content-wrap start -->
+    <div class="main-content-wrap section-ptb cart-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form action="#" class="cart-table">
+                        <div class="table-content table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="plantmore-product-thumbnail">تصویر محصول</th>
+                                    <th class="cart-product-name">نام محصول</th>
+                                    <th class="plantmore-product-price">قیمت</th>
+                                    <th class="plantmore-product-quantity">تعداد</th>
+                                    <th class="plantmore-product-subtotal">جمع کل</th>
+                                    <th class="plantmore-product-remove">حذف محصول</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for item in detail_of_order %}
+                                    <tr>
+                                        <td class="plantmore-product-thumbnail"><a href="#">
+                                            {% thumbnail item.product.image "130x110" crop="center" quality=70 as im %}
+                                                <img src="{{ im.url }}" alt="">
+                                            {% endthumbnail %}
+                                        </a></td>
+                                        <td class="plantmore-product-name"><a href="#">{{ item.product.name }}</a></td>
+                                        <td class="plantmore-product-price"><span
+                                                class="amount">{{ item.product.price|intcomma:False }} تومان</span></td>
+                                        <td class="plantmore-product-quantity">
+                                            <p>{{ item.count }}</p>
+                                        </td>
+                                        <td class="product-subtotal">
+                                            <span class="amount">{{ item.get_total_amount|intcomma:False }} تومان</span>
+                                        </td>
+                                        <td class="plantmore-product-remove">
+                                            <a href="{% url 'order:order' %}?product_id={{ item.id }}"><i
+                                                    class="icon-x"></i></a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="coupon-all">
+
+                                    <div class="coupon2">
+                                        <a href="shop.html" class="continue-btn">ادامه خرید</a>
+                                    </div>
+
+                                    <div class="coupon">
+                                        <h3>تخفیف</h3>
+                                        <p>کد تخفیف خود راوارد کنید.</p>
+                                        <input id="coupon_code" class="input-text" name="coupon_code" value=""
+                                               placeholder="کد تخفیف ..." type="text">
+                                        <input class="button" name="apply_coupon" value="اعمال کد تخفیف" type="submit">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 ml-auto">
+                                <div class="cart-page-total">
+                                    <h2>مجموع سبد</h2>
+                                    <ul>
+                                        <li>تعداد محصولات <span>{{ detail_of_order.count }} محصول</span></li>
+                                        <li>
+                                            {% if detail_of_order.count > 0 %}
+                                                جمع کل <span>{{ total_price|intcomma:False }} تومان</span>
+                                            {% else %}
+                                                جمع کل <span> 0 تومان</span>
+                                            {% endif %}
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="proceed-checkout-btn">پرداخت سبد</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main-content-wrap end -->
+{% endblock %}

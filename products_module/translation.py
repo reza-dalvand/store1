@@ -3,16 +3,16 @@ from .models import Product, ProductBrand, ProductCategory
 
 
 @register(Product)
-class CourseTranslationOptions(TranslationOptions):
+class ProductTranslationOptions(TranslationOptions):
     fields = ('name', 'short_desc', 'long_desc')
 
 
 @register(ProductBrand)
-class CourseTranslationOptions(TranslationOptions):
+class ProductBrandTranslationOptions(TranslationOptions):
     fields = ('name',)
 
 
 @register(ProductCategory)
-class CourseTranslationOptions(TranslationOptions):
+class ProductCategoryTranslationOptions(TranslationOptions):
     fields = ('name',)
 

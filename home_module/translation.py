@@ -3,5 +3,5 @@ from .models import MainSlider
 
 
 @register(MainSlider)
-class CourseTranslationOptions(TranslationOptions):
+class MainSliderTranslationOptions(TranslationOptions):
     fields = ('title',)

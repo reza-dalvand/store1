@@ -1,3 +1,4 @@
+{% load humanize %}
 {% load i18n %}
 {% load static %}
 
@@ -31,7 +32,9 @@
                     <div class="top-info-wrap text-left">
                         <ul class="my-account-container">
                             {% if user.is_authenticated %}
-                                <li><a href="{% url 'accounts:user_profile' request.user.id %}">{% trans "profile" %}</a></li>
+                                <li>
+                                    <a href="{% url 'accounts:user_profile' request.user.id %}">{% trans "profile" %}</a>
+                                </li>
                                 <li><a href="cart.html">{% trans "buy" %}</a></li>
                                 <li><a href="{% url 'accounts:logout' %}">{% trans "logout" %}</a></li>
                             {% else %}
@@ -128,46 +131,35 @@
                             <a href="#"> <span class="cart-total-amunt">20000 تومان</span><i
                                     class="icon-shopping-bag2 float-left"></i><span class="cart-total">2</span></a>
                             <ul class="mini-cart">
-                                <li class="cart-item">
-                                    <div class="cart-image">
-                                        <a href="single-product.html"><img alt=""
-                                                                           src="{% static "images/product/product-01.jpg" %}"></a>
-                                    </div>
-                                    <div class="cart-title">
-                                        <a href="single-product.html">
-                                            <h4>محصول 1</h4>
-                                        </a>
-                                        <div class="quanti-price-wrap">
-                                            <span class="quantity">1 ×</span>
-                                            <div class="price-box"><span class="new-price">130000 تومان</span></div>
+                                {% for item in detail_of_order.orders.all %}
+                                    <li class="cart-item">
+                                        <div class="cart-image">
+                                            <a href="{% url 'products:product_detail' item.product.id %}">
+                                                <img alt="" src="{% static "images/product/product-01.jpg" %}"></a>
                                         </div>
-                                        <a class="remove_from_cart" href="#"><i class="icon-x"></i></a>
-                                    </div>
-                                </li>
-                                <li class="cart-item">
-                                    <div class="cart-image">
-                                        <a href="single-product.html"><img alt=""
-                                                                           src="{% static "images/product/product-02.jpg" %}"></a>
-                                    </div>
-                                    <div class="cart-title">
-                                        <a href="single-product.html">
-                                            <h4>محصول 2</h4>
-                                        </a>
-                                        <div class="quanti-price-wrap">
-                                            <span class="quantity">1 ×</span>
-                                            <div class="price-box"><span class="new-price">150000 تومان</span></div>
+                                        <div class="cart-title">
+                                            <a href="single-product.html">
+                                                <h4>محصول {{ item.id }}</h4>
+                                            </a>
+                                            <div class="quanti-price-wrap">
+                                                <span class="quantity">{{ item.product.id }} ×</span>
+                                                <div class="price-box"><span class="new-price">{{ item.product.price }} تومان</span>
+                                                </div>
+                                            </div>
+                                            <a class="remove_from_cart"
+                                               href="{% url 'home:home' %}?product_id={{ item.id }}"><i
+                                                    class="icon-x"></i></a>
                                         </div>
-                                        <a class="remove_from_cart" href="#"><i class="icon-trash icons"></i></a>
-                                    </div>
-                                </li>
+                                    </li>
+                                {% endfor %}
                                 <li class="subtotal-box">
                                     <div class="subtotal-title">
-                                        <h3>جمع کل :</h3><span>260000 تومان</span>
+                                        <h3>جمع کل :</h3><span>{{ total_amount|intcomma:False }} تومان</span>
                                     </div>
                                 </li>
                                 <li class="mini-cart-btns">
                                     <div class="cart-btns">
-                                        <a href="cart.html">مشاهده سبد</a>
+                                        <a href="{% url 'order:order' %}">مشاهده سبد</a>
                                         <a href="checkout.html">پرداخت</a>
                                     </div>
                                 </li>
