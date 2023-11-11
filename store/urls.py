@@ -22,6 +22,7 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from contactUs_module.views import ContactUsView
+from orders_module.views import send_request, verify
 from store import settings
 from home_module.views import about_us
 
